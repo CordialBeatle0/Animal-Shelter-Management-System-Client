@@ -137,17 +137,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Purchase List"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPurchaseListActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAdminBack">
       <Properties>
         <Property name="text" type="java.lang.String" value="Back"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdminBackActionPerformed"/>
-      </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane2">
       <AuxValues>
@@ -201,9 +195,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="+"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1AddItemActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2RemoveItem">
       <Properties>
@@ -212,9 +203,6 @@
         </Property>
         <Property name="text" type="java.lang.String" value="-"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2RemoveItemActionPerformed"/>
-      </Events>
     </Component>
   </SubComponents>
 </Form>

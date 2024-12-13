@@ -96,33 +96,21 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="View Inventory"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonViewInventoryActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonViewSellingItems">
       <Properties>
         <Property name="text" type="java.lang.String" value="View Selling Items"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonViewSellingItemsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAdminViewAllAnimals">
       <Properties>
         <Property name="text" type="java.lang.String" value="View All Animals"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdminViewAllAnimalsActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAdminViewAllVolunteeringTasks">
       <Properties>
         <Property name="text" type="java.lang.String" value="View All Volunteering Tasks"/>
       </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdminViewAllVolunteeringTasksActionPerformed"/>
-      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonAdminManageAccount">
       <Properties>
