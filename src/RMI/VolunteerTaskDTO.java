@@ -21,12 +21,14 @@ public class VolunteerTaskDTO implements Serializable {
         this.description = description;
     }
 
-    public VolunteerTaskDTO(int ID, String taskName, String type, String date, boolean completionStatus) {
+    public VolunteerTaskDTO(int ID, String taskName, String type, String date, boolean completionStatus,
+            String description) {
         this.ID = ID;
         this.taskName = taskName;
         this.type = type;
         this.date = date;
         this.completionStatus = completionStatus;
+        this.description = description;
     }
 
     public int getID() {
