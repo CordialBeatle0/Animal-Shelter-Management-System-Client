@@ -4,11 +4,12 @@
  */
 package GUI;
 
+import RMI.AdminDTO;
+
 import javax.swing.JButton;
 import javax.swing.JTable;
 
 /**
- *
  * @author Assar
  */
 public class ViewInventoryGUI extends javax.swing.JFrame {
@@ -16,8 +17,16 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewMyTasksGUI
      */
+    private AdminDTO adminDTO;
+
     public ViewInventoryGUI() {
         initComponents();
+    }
+
+    public ViewInventoryGUI(AdminDTO adminDTO) {
+        initComponents();
+        this.adminDTO = adminDTO;
+        setLocationRelativeTo(null);
     }
 
     /**
@@ -58,18 +67,8 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         jLabel1.setText("Inventory");
 
         jButtonPurchaseList.setText("Purchase List");
-        jButtonPurchaseList.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonPurchaseListActionPerformed(evt);
-            }
-        });
 
         jButtonAdminBack.setText("Back");
-        jButtonAdminBack.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdminBackActionPerformed(evt);
-            }
-        });
 
         jTableAdminInventoryItems.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,19 +99,9 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(jTableAdminInventoryItems);
 
         jButton1AddItem.setText("+");
-        jButton1AddItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1AddItemActionPerformed(evt);
-            }
-        });
 
         jButton2RemoveItem.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         jButton2RemoveItem.setText("-");
-        jButton2RemoveItem.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2RemoveItemActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -148,7 +137,7 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2RemoveItem, javax.swing.GroupLayout.PREFERRED_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(jButton2RemoveItem, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                     .addComponent(jButton1AddItem))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -159,22 +148,6 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonPurchaseListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPurchaseListActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonPurchaseListActionPerformed
-
-    private void jButtonAdminBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminBackActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAdminBackActionPerformed
-
-    private void jButton1AddItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1AddItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1AddItemActionPerformed
-
-    private void jButton2RemoveItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2RemoveItemActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2RemoveItemActionPerformed
 
     public JButton getjButton1AddItem() {
         return jButton1AddItem;
@@ -196,6 +169,9 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         return jTableAdminInventoryItems;
     }
 
+    public AdminDTO getAdminDTO() {
+        return adminDTO;
+    }
 
     /**
      * @param args the command line arguments
@@ -204,7 +180,7 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {

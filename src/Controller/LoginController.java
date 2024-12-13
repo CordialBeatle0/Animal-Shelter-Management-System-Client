@@ -5,10 +5,7 @@ import GUI.LoginGUI;
 import GUI.SignUpGUI;
 import GUI.UserDashboardGUI;
 import GUI.VolunteerDashboardGUI;
-import RMI.AccountRMI;
-import RMI.UserDTO;
-import RMI.EmployeeDTO;
-import RMI.VolunteerDTO;
+import RMI.*;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -44,12 +41,28 @@ public class LoginController {
                     loginGUI.dispose();
                 } else if (loginGUI.getjRadioButtonEmployee().isSelected()) {
                     AccountRMI accountRMI = (AccountRMI) registry.lookup("Account");
-                    EmployeeDTO employee = accountRMI.empLogin(loginGUI.getjTextFieldUsername().getText(), loginGUI.getjTextFieldPassword().getText());
+                    EmployeeDTO employeeDTO = accountRMI.empLogin(loginGUI.getjTextFieldUsername().getText(), loginGUI.getjTextFieldPassword().getText());
                     // TODO: Add code to open the employee's account
-//                    switch (employee.getClass().getName()) {
-//                        case "Admin":
-////                            AdminDashboardGUI adminDashboardGUI = new AdminDashboardGUI(employee);
-//                    }
+                    switch (employeeDTO.getClass().getName()) {
+                        case "Admin":
+                            AdminDTO adminDTO = (AdminDTO) employeeDTO;
+                            AdminDashboardGUI adminDashboardGUI = new AdminDashboardGUI(adminDTO);
+                            adminDashboardGUI.setVisible(true);
+                            loginGUI.dispose();
+                            break;
+                        case "Doctor":
+                            DoctorDTO doctorDTO = (DoctorDTO) employeeDTO;
+                            // TODO: add the DoctorGUI
+                            break;
+                        case "Courier":
+                            CourierDTO courierDTO = (CourierDTO) employeeDTO;
+                            // TODO: add the CourierGUI
+                            break;
+                        case "Caretaker":
+                            CaretakerDTO caretakerDTO = (CaretakerDTO) employeeDTO;
+                            // TODO: add the CaretakerGUI
+                            break;
+                    }
                     
                 } else if (loginGUI.getjRadioButtonVolunteer().isSelected()) {
                     AccountRMI accountRMI = (AccountRMI) registry.lookup("Account");
