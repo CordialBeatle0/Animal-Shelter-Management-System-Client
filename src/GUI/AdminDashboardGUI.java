@@ -4,7 +4,10 @@
  */
 package GUI;
 
+import RMI.AdminDTO;
+
 import javax.swing.JButton;
+import java.awt.*;
 
 /**
  * @author Assar
@@ -14,10 +17,16 @@ public class AdminDashboardGUI extends javax.swing.JFrame {
     /**
      * Creates new form VolunteerDashboard
      */
-    
+    private AdminDTO adminDTO;
     
     public AdminDashboardGUI() {
         initComponents();
+    }
+    
+    public AdminDashboardGUI(AdminDTO adminDTO) {
+        initComponents();
+        this.adminDTO = adminDTO;
+        setLocationRelativeTo(null);
     }
     
     /**
@@ -43,32 +52,12 @@ public class AdminDashboardGUI extends javax.swing.JFrame {
         jLabel1.setText("Admin Dashboard");
         
         jButtonViewInventory.setText("View Inventory");
-        jButtonViewInventory.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewInventoryActionPerformed(evt);
-            }
-        });
         
         jButtonViewSellingItems.setText("View Selling Items");
-        jButtonViewSellingItems.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewSellingItemsActionPerformed(evt);
-            }
-        });
         
         jButtonAdminViewAllAnimals.setText("View All Animals");
-        jButtonAdminViewAllAnimals.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdminViewAllAnimalsActionPerformed(evt);
-            }
-        });
         
         jButtonAdminViewAllVolunteeringTasks.setText("View All Volunteering Tasks");
-        jButtonAdminViewAllVolunteeringTasks.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdminViewAllVolunteeringTasksActionPerformed(evt);
-            }
-        });
         
         jButtonAdminManageAccount.setText("Manage Account");
         
@@ -126,23 +115,6 @@ public class AdminDashboardGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     
-    private void jButtonAdminViewAllVolunteeringTasksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminViewAllVolunteeringTasksActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAdminViewAllVolunteeringTasksActionPerformed
-    
-    private void jButtonViewInventoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewInventoryActionPerformed
-        // TODO add your handling code here:
-        
-    }//GEN-LAST:event_jButtonViewInventoryActionPerformed
-    
-    private void jButtonAdminViewAllAnimalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminViewAllAnimalsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAdminViewAllAnimalsActionPerformed
-    
-    private void jButtonViewSellingItemsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewSellingItemsActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonViewSellingItemsActionPerformed
-    
     public JButton getjButtonAdminManageAccount() {
         return jButtonAdminManageAccount;
     }
@@ -151,6 +123,25 @@ public class AdminDashboardGUI extends javax.swing.JFrame {
         return jButtonLogout;
     }
     
+    public JButton getjButtonAdminViewAllAnimals() {
+        return jButtonAdminViewAllAnimals;
+    }
+    
+    public JButton getjButtonAdminViewAllVolunteeringTasks() {
+        return jButtonAdminViewAllVolunteeringTasks;
+    }
+    
+    public JButton getjButtonViewInventory() {
+        return jButtonViewInventory;
+    }
+    
+    public JButton getjButtonViewSellingItems() {
+        return jButtonViewSellingItems;
+    }
+    
+    public AdminDTO getAdminDTO() {
+        return adminDTO;
+    }
     
     /**
      * @param args the command line arguments
