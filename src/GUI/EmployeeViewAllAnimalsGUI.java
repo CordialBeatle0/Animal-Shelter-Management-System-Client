@@ -7,6 +7,8 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
+import RMI.CaretakerDTO;
+
 /**
  *
  * @author Shero
@@ -16,6 +18,13 @@ public class EmployeeViewAllAnimalsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewAllAnimalsGUI
      */
+    CaretakerDTO caretakerDTO;
+
+    public EmployeeViewAllAnimalsGUI(CaretakerDTO caretakerDTO) {
+        this.caretakerDTO = caretakerDTO;
+        initComponents();
+    }
+    
     public EmployeeViewAllAnimalsGUI() {
         initComponents();
     }
