@@ -89,8 +89,7 @@ public class PurchaseInventoryController {
     }
     
     private void backButton() {
-        // TODO: add params to gui
-        ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI();
+        ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI(purchaseInventoryGUI.getAdminDTO());
         viewInventoryGUI.setVisible(true);
         purchaseInventoryGUI.dispose();
     }
