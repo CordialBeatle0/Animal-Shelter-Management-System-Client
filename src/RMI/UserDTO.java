@@ -5,13 +5,23 @@ import java.io.Serializable;
 public class UserDTO implements Serializable { // TODO: I want this to implement Observer so that it can be passed
     // when an Observer needs to be passed, but then I would have to implement the updateObserver method
     private int ID;
+    private AccountDTO account;
     private String name;
     private String phoneNumber;
     private String address;
     private float outstandingFees;
     
-    public UserDTO(int ID, String name, String phoneNumber, String address, float outstandingFees) {
+    public UserDTO(AccountDTO account, String name, String phoneNumber, String address, float outstandingFees) {
+        this.account = account;
+        this.name = name;
+        this.phoneNumber = phoneNumber;
+        this.address = address;
+        this.outstandingFees = outstandingFees;
+    }
+    
+    public UserDTO(int ID, AccountDTO account, String name, String phoneNumber, String address, float outstandingFees) {
         this.ID = ID;
+        this.account = account;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
@@ -24,6 +34,14 @@ public class UserDTO implements Serializable { // TODO: I want this to implement
     
     public void setID(int ID) {
         this.ID = ID;
+    }
+    
+    public AccountDTO getAccount() {
+        return account;
+    }
+    
+    public void setAccount(AccountDTO account) {
+        this.account = account;
     }
     
     public String getName() {
