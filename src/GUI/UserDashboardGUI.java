@@ -39,10 +39,6 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         return jButtonBookShelterVisit;
     }
 
-    public JButton getManageAccountButton() {
-        return jButtonViewNextNotification;
-    }
-
     public JButton getSubscribeToTrainingButton() {
         return jButtonSubscribeToTraining;
     }
@@ -75,8 +71,9 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         return jButtonLogOut;
     }
     
-    
-
+    public JButton getjButtonViewNextNotification() {
+        return jButtonViewNextNotification;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
