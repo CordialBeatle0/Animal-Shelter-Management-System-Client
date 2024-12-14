@@ -2,18 +2,37 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package GUI2;
+package GUI;
+
+import RMI.EmployeeDTO;
 
 /**
  *
  * @author Shero
  */
-public class CaretakerBookDoctorAppointment extends javax.swing.JFrame {
+public class CaretakerBookDoctorAppointmentGUI extends javax.swing.JFrame {
 
     /**
      * Creates new form CaretakerBookDoctorAppointment
      */
-    public CaretakerBookDoctorAppointment() {
+    EmployeeDTO caretakerDTO;
+    EmployeeDTO employeeDTO;
+    int animalID;
+
+    public CaretakerBookDoctorAppointmentGUI(EmployeeDTO caretakerDTO) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.caretakerDTO = caretakerDTO;
+    }
+    
+    public CaretakerBookDoctorAppointmentGUI(EmployeeDTO employeeDTO, int animalID) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.employeeDTO = employeeDTO;
+        this.animalID = animalID;
+    }
+    
+    public CaretakerBookDoctorAppointmentGUI() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -141,6 +160,18 @@ public class CaretakerBookDoctorAppointment extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldDayBookDoctorAppointmentActionPerformed
 
+    public EmployeeDTO getCaretakerDTO() {
+        return caretakerDTO;
+    }
+
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
+
+    public int getAnimalID() {
+        return animalID;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -158,20 +189,21 @@ public class CaretakerBookDoctorAppointment extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointmentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointmentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointmentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointment.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(CaretakerBookDoctorAppointmentGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new CaretakerBookDoctorAppointment().setVisible(true);
+                new CaretakerBookDoctorAppointmentGUI().setVisible(true);
             }
         });
     }
