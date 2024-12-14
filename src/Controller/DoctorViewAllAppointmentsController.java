@@ -22,6 +22,7 @@ import GUI.DoctorViewAllAppointmentsGUI;
 import GUI.DoctorViewAppointmentGUI;
 import GUI.DoctorDashboardGUI;
 import RMI.AppointmentDTO;
+import RMI.AppointmentRMI;
 import RMI.DoctorRMI;
 import RMI.UtilityItemDTO;
 
@@ -30,6 +31,7 @@ public class DoctorViewAllAppointmentsController {
     DoctorViewAllAppointmentsGUI doctorViewAllAppointmentsGUI;
     Registry registry;
     DoctorRMI doctorRMI;
+    AppointmentRMI appointmentRMI;
     JTable jTableAppointmentDetailsViewAppointment;
     DefaultTableModel tableModel;
 
@@ -64,15 +66,31 @@ public class DoctorViewAllAppointmentsController {
         }
     }
 
+    // TODO: Fix this to pass the selected appointment to the next screen
     class RecordDescriptionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
-                    doctorViewAllAppointmentsGUI.getDoctor());
-            doctorViewAppointmentGUI.setVisible(true);
-            new DoctorViewAppointmentController(
-                    new DoctorViewAppointmentGUI(doctorViewAllAppointmentsGUI.getDoctor()), registry);
-            doctorViewAllAppointmentsGUI.setVisible(false);
+            int selectedRow = jTableAppointmentDetailsViewAppointment.getSelectedRow();
+            if (selectedRow == -1) {
+                JOptionPane.showMessageDialog(doctorViewAllAppointmentsGUI, "Please select an appointment to view",
+                        "Error", JOptionPane.ERROR_MESSAGE);
+                return;
+            }
+            int appointmentID = (int) jTableAppointmentDetailsViewAppointment.getValueAt(selectedRow, 0);
+            try {
+                AppointmentDTO appointment = appointmentRMI.getAppointment(appointmentID);
+
+                DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
+                        doctorViewAllAppointmentsGUI.getDoctor(), appointment);
+                doctorViewAppointmentGUI.setVisible(true);
+                new DoctorViewAppointmentController(
+                        new DoctorViewAppointmentGUI(doctorViewAllAppointmentsGUI.getDoctor(), appointment),
+                        registry);
+                doctorViewAllAppointmentsGUI.setVisible(false);
+            } catch (RemoteException ex) {
+                Logger.getLogger(DoctorViewAllAppointmentsController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
     }
 

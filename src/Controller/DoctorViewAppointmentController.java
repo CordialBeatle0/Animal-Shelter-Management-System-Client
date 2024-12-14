@@ -91,7 +91,7 @@ public class DoctorViewAppointmentController {
     }
 
     private void loadTable() throws RemoteException {
-        AppointmentDTO appointment = appointmentRMI.viewAppointment();
+        AppointmentDTO appointment = appointmentRMI.viewAppointment(doctorAppointmentGUI.getAppointment().getID());
 
         int columns = 0;
         int rows = 0;

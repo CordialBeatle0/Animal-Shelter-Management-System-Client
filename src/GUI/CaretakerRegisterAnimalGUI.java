@@ -9,6 +9,9 @@ import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 
+import RMI.CaretakerDTO;
+import javax.swing.JLabel;
+
 /**
  *
  * @author Shero
@@ -18,6 +21,12 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
     /**
      * Creates new form RegisterAnimalGUI
      */
+    CaretakerDTO caretakerDTO;
+    
+    public CaretakerRegisterAnimalGUI(CaretakerDTO caretakerDTO) {
+        this.caretakerDTO = caretakerDTO;
+        initComponents();
+    }
     public CaretakerRegisterAnimalGUI() {
         initComponents();
     }
@@ -35,7 +44,6 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
         buttonGroupSponsoredStatusRegister = new javax.swing.ButtonGroup();
         buttonGroupFosteredStatusRegister = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
@@ -46,7 +54,6 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jButtonRegisterAnimalRegisteration = new javax.swing.JButton();
         jButtonBackRegisterAnimal = new javax.swing.JButton();
-        jTextFieldAnimalIDRegister = new javax.swing.JTextField();
         jTextFieldAnimalNameRegister = new javax.swing.JTextField();
         jTextFieldAnimalBreedRegister = new javax.swing.JTextField();
         jTextFieldAnimalTypeRegister = new javax.swing.JTextField();
@@ -63,8 +70,6 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         jLabel1.setText("Register Animal");
-
-        jLabel2.setText("Animal ID");
 
         jLabel3.setText("Animal Name");
 
@@ -83,19 +88,8 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
         jLabel10.setText("Fostered Status");
 
         jButtonRegisterAnimalRegisteration.setText("Register Animal");
-        jButtonRegisterAnimalRegisteration.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterAnimalRegisterationActionPerformed(evt);
-            }
-        });
 
         jButtonBackRegisterAnimal.setText("Back");
-
-        jTextFieldAnimalIDRegister.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextFieldAnimalIDRegisterActionPerformed(evt);
-            }
-        });
 
         buttonGroupAdoptedStatusRegister.add(jRadioButtonTrueAdoptedStatus);
         jRadioButtonTrueAdoptedStatus.setText("True");
@@ -123,22 +117,19 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(87, 87, 87)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel8)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(jLabel2))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(jTextFieldAnimalNameRegister)
-                                .addComponent(jTextFieldAnimalIDRegister)
                                 .addComponent(jTextFieldAnimalTypeRegister)
                                 .addComponent(jTextFieldAnimalBreedRegister)
                                 .addComponent(jTextFieldAnimalAge)
@@ -171,11 +162,7 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jTextFieldAnimalIDRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(jTextFieldAnimalNameRegister, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -212,7 +199,7 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
                     .addComponent(jRadioButtonFalseFostered))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonRegisterAnimalRegisteration)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                 .addComponent(jButtonBackRegisterAnimal)
                 .addContainerGap())
         );
@@ -220,25 +207,7 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonRegisterAnimalRegisterationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterAnimalRegisterationActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegisterAnimalRegisterationActionPerformed
-
-    private void jTextFieldAnimalIDRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAnimalIDRegisterActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextFieldAnimalIDRegisterActionPerformed
-
-    public ButtonGroup getButtonGroupAdoptedStatusRegister() {
-        return buttonGroupAdoptedStatusRegister;
-    }
-
-    public ButtonGroup getButtonGroupFosteredStatusRegister() {
-        return buttonGroupFosteredStatusRegister;
-    }
-
-    public ButtonGroup getButtonGroupSponsoredStatusRegister() {
-        return buttonGroupSponsoredStatusRegister;
-    }
+    
 
     public JButton getjButtonBackRegisterAnimal() {
         return jButtonBackRegisterAnimal;
@@ -280,9 +249,7 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
         return jTextFieldAnimalBreedRegister;
     }
 
-    public JTextField getjTextFieldAnimalIDRegister() {
-        return jTextFieldAnimalIDRegister;
-    }
+  
 
     public JTextField getjTextFieldAnimalNameRegister() {
         return jTextFieldAnimalNameRegister;
@@ -294,6 +261,10 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
 
     public JTextField getjTextFieldLastFeedingRegister() {
         return jTextFieldLastFeedingRegister;
+    }
+
+    public CaretakerDTO getCaretakerDTO() {
+        return caretakerDTO;
     }
 
     
@@ -342,7 +313,6 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonRegisterAnimalRegisteration;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -358,7 +328,6 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton jRadioButtonTrueSponsored;
     private javax.swing.JTextField jTextFieldAnimalAge;
     private javax.swing.JTextField jTextFieldAnimalBreedRegister;
-    private javax.swing.JTextField jTextFieldAnimalIDRegister;
     private javax.swing.JTextField jTextFieldAnimalNameRegister;
     private javax.swing.JTextField jTextFieldAnimalTypeRegister;
     private javax.swing.JTextField jTextFieldLastFeedingRegister;

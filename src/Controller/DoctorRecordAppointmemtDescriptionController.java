@@ -41,11 +41,14 @@ public class DoctorRecordAppointmemtDescriptionController {
         @Override
         public void actionPerformed(ActionEvent e) {
             DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
-                    doctorRecordAppointmemtDescriptionGUI1.getDoctor());
+                    doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
+                    doctorRecordAppointmemtDescriptionGUI1.getAppointment());
             doctorViewAppointmentGUI.setVisible(true);
             doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
             new DoctorViewAppointmentController(
-                    new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor()), registry);
+                    new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
+                            doctorRecordAppointmemtDescriptionGUI1.getAppointment()),
+                    registry);
         }
     }
 
@@ -53,14 +56,23 @@ public class DoctorRecordAppointmemtDescriptionController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                appointmentRMI.recordAppointmentDetail(doctorRecordAppointmemtDescriptionGUI1
-                        .getjTextAreaDescriptionAppointmentDescription().getText());
+                int appointmentID = doctorRecordAppointmemtDescriptionGUI1.getAppointment().getID();
+                String description = doctorRecordAppointmemtDescriptionGUI1
+                        .getjTextAreaDescriptionAppointmentDescription()
+                        .getText();
+
+                appointmentRMI.recordAppointmentDetail(appointmentID, description);
+
                 DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
-                        doctorRecordAppointmemtDescriptionGUI1.getDoctor());
+                        doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
+                        doctorRecordAppointmemtDescriptionGUI1.getAppointment());
+
                 doctorViewAppointmentGUI.setVisible(true);
                 doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
                 new DoctorViewAppointmentController(
-                        new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor()), registry);
+                        new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
+                                doctorRecordAppointmemtDescriptionGUI1.getAppointment()),
+                        registry);
             } catch (RemoteException ex) {
                 Logger.getLogger(DoctorRecordAppointmemtDescriptionController.class.getName()).log(Level.SEVERE, null,
                         ex);

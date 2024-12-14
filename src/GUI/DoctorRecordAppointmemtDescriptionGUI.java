@@ -7,6 +7,8 @@ package GUI;
 import javax.print.Doc;
 import javax.swing.JButton;
 import javax.swing.JTextArea;
+
+import RMI.AppointmentDTO;
 import RMI.DoctorDTO;
 
 /**
@@ -15,6 +17,7 @@ import RMI.DoctorDTO;
  */
 public class DoctorRecordAppointmemtDescriptionGUI extends javax.swing.JFrame {
     DoctorDTO doctor;
+    AppointmentDTO appointment;
 
     /**
      * Creates new form RecordAppointmemtDescriptionGUI
@@ -23,10 +26,11 @@ public class DoctorRecordAppointmemtDescriptionGUI extends javax.swing.JFrame {
         initComponents();
     }
 
-    public DoctorRecordAppointmemtDescriptionGUI(DoctorDTO doctor) {
+    public DoctorRecordAppointmemtDescriptionGUI(DoctorDTO doctor, AppointmentDTO appointment) {
         initComponents();
         setLocationRelativeTo(null);
         this.doctor = doctor;
+        this.appointment = appointment;
     }
 
     public JButton getjButtonBackAppointmentDescription() {
@@ -43,6 +47,10 @@ public class DoctorRecordAppointmemtDescriptionGUI extends javax.swing.JFrame {
 
     public DoctorDTO getDoctor() {
         return doctor;
+    }
+
+    public AppointmentDTO getAppointment() {
+        return appointment;
     }
 
     /**

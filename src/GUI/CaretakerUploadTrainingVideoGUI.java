@@ -7,6 +7,8 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import RMI.EmployeeDTO;
+
 /**
  *
  * @author Shero
@@ -16,6 +18,13 @@ public class CaretakerUploadTrainingVideoGUI extends javax.swing.JFrame {
     /**
      * Creates new form UploadTrainingVideoGUI
      */
+    EmployeeDTO employeeDTO;
+
+    public CaretakerUploadTrainingVideoGUI(EmployeeDTO employeeDTO) {
+        initComponents();
+        this.employeeDTO = employeeDTO;
+    }
+    
     public CaretakerUploadTrainingVideoGUI() {
         initComponents();
     }
@@ -40,7 +49,10 @@ public class CaretakerUploadTrainingVideoGUI extends javax.swing.JFrame {
         return jTextFieldURLUploadTraining;
     }
     
-    
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.

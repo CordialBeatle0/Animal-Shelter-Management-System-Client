@@ -9,9 +9,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import GUI.DoctorDashboardGUI;
-import java.rmi.registry.Registry;
 import GUI.LoginGUI;
-import GUI.DoctorViewAppointmentGUI;
+import GUI.DoctorViewAllAppointmentsGUI;
 
 public class DoctorDashboardController {
     Registry registry;
@@ -41,8 +40,8 @@ public class DoctorDashboardController {
     class ViewAppointmentsListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
-            DoctorViewAppointmentGUI viewAppointments = new DoctorViewAppointmentGUI(doctorDashboard.getDoctor());
+            DoctorViewAllAppointmentsGUI viewAppointments = new DoctorViewAllAppointmentsGUI(
+                    doctorDashboard.getDoctor());
             viewAppointments.setVisible(true);
             doctorDashboard.dispose();
 
