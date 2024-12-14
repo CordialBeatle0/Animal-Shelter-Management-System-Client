@@ -1,10 +1,13 @@
 package Controller;
 
+import GUI.AdminDashboardGUI;
 import GUI.CaretakerDashboardGUI;
 import GUI.EmployeeViewAllAnimalsGUI;
 import GUI.EmployeeViewAnimalGUI;
+import RMI.AdminDTO;
 import RMI.AnimalRMI;
 import RMI.AnimalDTO;
+import RMI.CaretakerDTO;
 
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
@@ -40,7 +43,8 @@ public class EmployeeViewAllAnimalsController {
                 .addActionListener(new ViewAnimalViewAnimalsButtonListener());
         employeeViewAllAnimalsGUI.getjButtonBackViewAllAnimals()
                 .addActionListener(new ViewAnimalViewAnimalsButtonListener());
-
+        employeeViewAllAnimalsGUI.getjButtonBackViewAllAnimals()
+                .addActionListener(new BackViewAllAnimalsButtonListener());
     }
 
     private void loadTable() throws RemoteException {
@@ -83,12 +87,21 @@ public class EmployeeViewAllAnimalsController {
 
     class BackViewAllAnimalsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
-                    employeeViewAllAnimalsGUI.getEmployeeDTO());
-            CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
-                    caretakerDashboardGUI, registry);
-            caretakerDashboardGUI.setVisible(true);
-            employeeViewAllAnimalsGUI.dispose();
+            if (employeeViewAllAnimalsGUI.getEmployeeDTO() instanceof CaretakerDTO) {
+                CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
+                        ((CaretakerDTO) employeeViewAllAnimalsGUI.getEmployeeDTO()));
+                CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
+                        caretakerDashboardGUI, registry);
+                caretakerDashboardGUI.setVisible(true);
+                employeeViewAllAnimalsGUI.dispose();
+            } else {
+                AdminDashboardGUI adminDashboardGUI =
+                        new AdminDashboardGUI(((AdminDTO) employeeViewAllAnimalsGUI.getEmployeeDTO()));
+                AdminDashboardController adminDashboardController = new AdminDashboardController(adminDashboardGUI,
+                        registry);
+                adminDashboardGUI.setVisible(true);
+                employeeViewAllAnimalsGUI.dispose();
+            }
         }
     }
 }

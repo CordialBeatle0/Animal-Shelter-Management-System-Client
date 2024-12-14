@@ -27,6 +27,7 @@ public class CourierDashboardGUI extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         this.courier = courier;
+        System.out.println(courier.toString());
     }
 
     public JButton getjButtonLogoutCourierDashboard() {

@@ -31,6 +31,7 @@ public class DoctorViewAppointmentController {
         this.registry = registry;
         jTableAppointmentDetailsViewAppointment = doctorAppointmentGUI.getjTableAppointmentDetailsViewAppointment();
         tableModel = (DefaultTableModel) jTableAppointmentDetailsViewAppointment.getModel();
+        doctorAppointmentGUI.getjTextFieldDoctorNameViewAppointment().setText(doctorAppointmentGUI.getDoctor().getName());
         try {
             appointmentRMI = (AppointmentRMI) registry.lookup("Appointment");
             loadTable();
@@ -42,7 +43,6 @@ public class DoctorViewAppointmentController {
         doctorAppointmentGUI.getjButtonCancelAppointment().addActionListener(new CancelListener());
         doctorAppointmentGUI.getjButtonRecordDescriptionViewAppointment()
                 .addActionListener(new RecordDescriptionListener());
-        doctorAppointmentGUI.getjTextFieldDoctorNameViewAppointment().addActionListener(new DoctorNameListener());
         doctorAppointmentGUI.getjButtonBackViewAppointment().addActionListener(new BackListener());
 
     }
@@ -52,7 +52,11 @@ public class DoctorViewAppointmentController {
         public void actionPerformed(ActionEvent e) {
             try {
                 appointmentRMI.cancelAppointment(doctorAppointmentGUI.getAppointment().getID());
-                loadTable();
+                DoctorDashboardGUI doctorDashboardGUI = new DoctorDashboardGUI(doctorAppointmentGUI.getDoctor());
+                DoctorDashboardController doctorDashboardController = new DoctorDashboardController(doctorDashboardGUI,
+                        registry);
+                doctorDashboardGUI.setVisible(true);
+                doctorAppointmentGUI.dispose();
             } catch (RemoteException ex) {
                 Logger.getLogger(DoctorViewAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -63,21 +67,12 @@ public class DoctorViewAppointmentController {
         @Override
         public void actionPerformed(ActionEvent e) {
 
-            DoctorRecordAppointmemtDescriptionGUI doctorRecordAppointmemtDescriptionGUI = new DoctorRecordAppointmemtDescriptionGUI();
+            DoctorRecordAppointmemtDescriptionGUI doctorRecordAppointmemtDescriptionGUI =
+                    new DoctorRecordAppointmemtDescriptionGUI(doctorAppointmentGUI.getDoctor(), doctorAppointmentGUI.getAppointment());
+            doctorRecordAppointmemtDescriptionGUI.setVisible(true);
             DoctorRecordAppointmemtDescriptionController doctorRecordAppointmemtDescriptionController = new DoctorRecordAppointmemtDescriptionController(
                     doctorRecordAppointmemtDescriptionGUI, registry);
-            doctorRecordAppointmemtDescriptionGUI.setVisible(true);
-            doctorAppointmentGUI.setVisible(false);
-        }
-    }
-
-    class DoctorNameListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String docName = doctorAppointmentGUI.getDoctor().getName();
-            doctorAppointmentGUI.getjTextFieldDoctorNameViewAppointment().setEditable(true);
-            doctorAppointmentGUI.getjTextFieldDoctorNameViewAppointment().setText(docName);
-            doctorAppointmentGUI.getjTextFieldDoctorNameViewAppointment().setEditable(false);
+            doctorAppointmentGUI.dispose();
         }
     }
 
@@ -88,7 +83,7 @@ public class DoctorViewAppointmentController {
             DoctorDashboardController doctorDashboardController = new DoctorDashboardController(doctorDashboardGUI,
                     registry);
             doctorDashboardGUI.setVisible(true);
-            doctorAppointmentGUI.setVisible(false);
+            doctorAppointmentGUI.dispose();
         }
     }
 
@@ -96,16 +91,14 @@ public class DoctorViewAppointmentController {
         AppointmentDTO appointment = appointmentRMI.viewAppointment(doctorAppointmentGUI.getAppointment().getID());
 
         int columns = 0;
-        int rows = 0;
 
         tableModel.setRowCount(0);
         tableModel.addRow(new Object[] {});
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getID(), rows, columns++);
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getDate(), rows, columns++);
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getPrice(), rows, columns++);
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getAnimalName(), rows, columns++);
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getAnimalType(), rows, columns++);
-        jTableAppointmentDetailsViewAppointment.setValueAt(appointment.getDescription(), rows, columns);
+        tableModel.setValueAt(appointment.getID(), 0, columns++);
+        tableModel.setValueAt(appointment.getDate(), 0, columns++);
+        tableModel.setValueAt(appointment.getPrice(), 0, columns++);
+        tableModel.setValueAt(appointment.getAnimalName(), 0, columns++);
+        tableModel.setValueAt(appointment.getAnimalType(), 0, columns++);
+        tableModel.setValueAt(appointment.getDescription(), 0, columns);
     }
-
-};
+}

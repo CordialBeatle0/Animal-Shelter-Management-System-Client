@@ -1,11 +1,6 @@
 package Controller;
 
-import javax.print.Doc;
 import javax.swing.table.DefaultTableModel;
-
-import Controller.DoctorViewAppointmentController.CancelListener;
-import Controller.DoctorViewAppointmentController.DoctorNameListener;
-import Controller.DoctorViewAppointmentController.RecordDescriptionListener;
 
 import javax.swing.*;
 
@@ -44,6 +39,7 @@ public class DoctorViewAllAppointmentsController {
         tableModel = (DefaultTableModel) jTableAppointmentDetailsViewAppointment.getModel();
         try {
             doctorRMI = (DoctorRMI) registry.lookup("Doctor");
+            appointmentRMI = (AppointmentRMI) registry.lookup("Appointment");
             loadTable();
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(DoctorViewAllAppointmentsController.class.getName()).log(Level.SEVERE, null, ex);
@@ -60,9 +56,10 @@ public class DoctorViewAllAppointmentsController {
         @Override
         public void actionPerformed(ActionEvent e) {
             DoctorDashboardGUI doctorDashboardGUI = new DoctorDashboardGUI(doctorViewAllAppointmentsGUI.getDoctor());
+            DoctorDashboardController doctorDashboardController =
+                    new DoctorDashboardController(doctorDashboardGUI, registry);
             doctorDashboardGUI.setVisible(true);
-            doctorViewAllAppointmentsGUI.setVisible(false);
-            new DoctorDashboardController(new DoctorDashboardGUI(doctorViewAllAppointmentsGUI.getDoctor()), registry);
+            doctorViewAllAppointmentsGUI.dispose();
         }
     }
 
@@ -79,13 +76,10 @@ public class DoctorViewAllAppointmentsController {
             try {
                 AppointmentDTO appointment = appointmentRMI.getAppointment(appointmentID);
 
-                DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
-                        doctorViewAllAppointmentsGUI.getDoctor(), appointment);
+                DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(doctorViewAllAppointmentsGUI.getDoctor(), appointment);
                 doctorViewAppointmentGUI.setVisible(true);
-                new DoctorViewAppointmentController(
-                        new DoctorViewAppointmentGUI(doctorViewAllAppointmentsGUI.getDoctor(), appointment),
-                        registry);
-                doctorViewAllAppointmentsGUI.setVisible(false);
+                new DoctorViewAppointmentController(doctorViewAppointmentGUI, registry);
+                doctorViewAllAppointmentsGUI.dispose();
             } catch (RemoteException ex) {
                 Logger.getLogger(DoctorViewAllAppointmentsController.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -94,7 +88,8 @@ public class DoctorViewAllAppointmentsController {
     }
 
     private void loadTable() throws RemoteException {
-        ArrayList<AppointmentDTO> appointment = doctorRMI.viewDoctorAppointments();
+        ArrayList<AppointmentDTO> appointment =
+                doctorRMI.viewDoctorAppointments(doctorViewAllAppointmentsGUI.getDoctor().getID());
 
         int columns;
         int rows = 0;

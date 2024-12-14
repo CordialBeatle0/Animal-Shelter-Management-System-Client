@@ -43,13 +43,10 @@ public class DoctorRecordAppointmemtDescriptionController {
             DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
                     doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
                     doctorRecordAppointmemtDescriptionGUI1.getAppointment());
-            new DoctorViewAppointmentController(
-                    new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
-                            doctorRecordAppointmemtDescriptionGUI1.getAppointment()),
-                    registry);
+            new DoctorViewAppointmentController(doctorViewAppointmentGUI, registry);
 
             doctorViewAppointmentGUI.setVisible(true);
-            doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
+            doctorRecordAppointmemtDescriptionGUI1.dispose();
         }
     }
 
@@ -63,20 +60,16 @@ public class DoctorRecordAppointmemtDescriptionController {
                         .getText();
 
                 appointmentRMI.recordAppointmentDetail(appointmentID, description);
-
+                
                 DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
                         doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
                         doctorRecordAppointmemtDescriptionGUI1.getAppointment());
-
+                new DoctorViewAppointmentController(doctorViewAppointmentGUI, registry);
+                
                 doctorViewAppointmentGUI.setVisible(true);
-                doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
-                new DoctorViewAppointmentController(
-                        new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
-                                doctorRecordAppointmemtDescriptionGUI1.getAppointment()),
-                        registry);
+                doctorRecordAppointmemtDescriptionGUI1.dispose();
             } catch (RemoteException ex) {
-                Logger.getLogger(DoctorRecordAppointmemtDescriptionController.class.getName()).log(Level.SEVERE, null,
-                        ex);
+                Logger.getLogger(DoctorRecordAppointmemtDescriptionController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }

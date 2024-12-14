@@ -25,6 +25,7 @@ public class UserViewShopGUI extends javax.swing.JFrame {
 
     public UserViewShopGUI(UserDTO user) {
         initComponents();
+        setLocationRelativeTo(null);
         this.user = user;
     }
 

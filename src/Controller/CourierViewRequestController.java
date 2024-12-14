@@ -41,8 +41,7 @@ public class CourierViewRequestController {
 
         // add event listener
         viewRequestsGUI.getjButtonBackViewRequestsCourierRequests().addActionListener(new BackListener());
-        viewRequestsGUI.getjButtonFinishRequestViewRequestsCourierRequests()
-                .addActionListener(new FinishRequestListener());
+        viewRequestsGUI.getjButtonFinishRequestViewRequestsCourierRequests().addActionListener(new FinishRequestListener());
     }
 
     class BackListener implements ActionListener {
@@ -77,7 +76,8 @@ public class CourierViewRequestController {
     }
 
     private void loadTable() throws RemoteException {
-        ArrayList<RequestDTO> requests = requestRMI.viewRequest(viewRequestsGUI.getCourier());
+        CourierDTO courier = viewRequestsGUI.getCourier();
+        ArrayList<RequestDTO> requests = requestRMI.viewRequest(courier);
 
         int columns;
         int rows = 0;
