@@ -28,6 +28,7 @@ public class CourierDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             LoginGUI login = new LoginGUI();
+            LoginController loginController = new LoginController(login, registry);
             login.setVisible(true);
             courierDashboard.dispose();
         }
@@ -37,7 +38,8 @@ public class CourierDashboardController {
         @Override
         public void actionPerformed(ActionEvent e) {
             CourierViewRequestsGUI viewRequests = new CourierViewRequestsGUI(courierDashboard.getCourier());
-
+            CourierViewRequestController viewRequestController = new CourierViewRequestController(viewRequests,
+                    registry);
             viewRequests.setVisible(true);
             courierDashboard.dispose();
         }

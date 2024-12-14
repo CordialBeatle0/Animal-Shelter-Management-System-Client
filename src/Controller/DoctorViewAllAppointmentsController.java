@@ -66,7 +66,6 @@ public class DoctorViewAllAppointmentsController {
         }
     }
 
-    // TODO: Fix this to pass the selected appointment to the next screen
     class RecordDescriptionListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
