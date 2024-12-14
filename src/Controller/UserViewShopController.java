@@ -91,6 +91,7 @@ public class UserViewShopController {
         UserDashboardGUI userDashboardGUI = new UserDashboardGUI(userDTO);
         UserDashboardController userDashboardController = new UserDashboardController(userDashboardGUI, registry);
         userDashboardGUI.setVisible(true);
+        userDashboardGUI.setLocationRelativeTo(null);
         userViewShopGUI.dispose();
     }
 }

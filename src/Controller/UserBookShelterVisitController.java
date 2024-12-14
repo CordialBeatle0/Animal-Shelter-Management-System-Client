@@ -67,6 +67,7 @@ public class UserBookShelterVisitController {
                 UserDashboardController dashboardController = new UserDashboardController(dashboardGUI, r);
                 dashboardGUI.setVisible(true);
                 dashboardGUI.setLocationRelativeTo(null);
+                gui.dispose();
 
             } catch (RemoteException ex) {
                 System.out.println("Error creating booking: " + ex.getMessage());

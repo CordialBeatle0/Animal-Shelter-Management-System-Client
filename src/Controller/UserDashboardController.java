@@ -28,6 +28,8 @@ public class UserDashboardController {
         gui.getViewShopButton().addActionListener(new openViewShop());
         gui.getViewTrainingVideoButton().addActionListener(new openViewTrainingVideo());
         gui.getjButtonUnSubscribeToTraining().addActionListener(new UnSubscribeToTraining());
+        gui.getjButtonLogOut().addActionListener(new logoutButton());
+        
     }
 
     class openViewAnimals implements ActionListener {
@@ -68,11 +70,21 @@ public class UserDashboardController {
     class SubscribeToTraining implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            UserPaymentGUI payGUI = new UserPaymentGUI(gui.getUser());
-            UserPaymentController payController = new UserPaymentController(payGUI, r, true);
-            payGUI.setVisible(true);
-            payGUI.setLocationRelativeTo(null);
-            gui.dispose();
+            
+            if (gui.getUser().isSubscribed() == true) {
+                JOptionPane.showMessageDialog(null, "You are already subscribed to training.");
+                return;
+            }
+            else {
+                
+                UserPaymentGUI payGUI = new UserPaymentGUI(gui.getUser());
+                UserPaymentController payController = new UserPaymentController(payGUI, r, true);
+                payGUI.setVisible(true);
+                payGUI.setLocationRelativeTo(null);
+                gui.dispose();
+            }
+            
+            
         }
     }
 
@@ -80,9 +92,20 @@ public class UserDashboardController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             try {
-                SubscriptionRMI subscribeToTraining = (SubscriptionRMI) r.lookup("Subscription");
-                subscribeToTraining.endSubscription(gui.getUser());
-                JOptionPane.showMessageDialog(null, "You have unsubscribed from training successfully.");
+
+                if (gui.getUser().isSubscribed() == false) {
+                    JOptionPane.showMessageDialog(null, "You are not subscribed to training.");
+                    return;
+                }
+                else {
+                    SubscriptionRMI subscribeToTraining = (SubscriptionRMI) r.lookup("Subscription");
+                    subscribeToTraining.endSubscription(gui.getUser());
+                    gui.getUser().setSubscribed(false);
+                    JOptionPane.showMessageDialog(null, "You have unsubscribed from training successfully.");
+                    
+                }
+
+
             } catch (RemoteException | NotBoundException e) {
                 e.printStackTrace();
             }
@@ -116,12 +139,35 @@ public class UserDashboardController {
     class openViewTrainingVideo implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            UserViewAllVideosGUI viewTrainingVideoGUI = new UserViewAllVideosGUI(gui.getUser());
-            viewTrainingVideoGUI.setVisible(true);
-            viewTrainingVideoGUI.setLocationRelativeTo(null);
-            UserViewAllVideosController viewTrainingVideoController = new UserViewAllVideosController(
-                    viewTrainingVideoGUI, r);
+            
+            if (gui.getUser().isSubscribed() == false) {
+                JOptionPane.showMessageDialog(null, "You need to subscribe to training to view training videos.");
+                return;
+            }
+            else {
+            
+                UserViewAllVideosGUI viewTrainingVideoGUI = new UserViewAllVideosGUI(gui.getUser());
+                viewTrainingVideoGUI.setVisible(true);
+                viewTrainingVideoGUI.setLocationRelativeTo(null);
+                UserViewAllVideosController viewTrainingVideoController = new UserViewAllVideosController(
+                        viewTrainingVideoGUI, r);
+                gui.dispose();
+
+           }
+            
+        }
+    }
+
+    class logoutButton implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            LoginGUI loginGUI = new LoginGUI();
+            LoginController loginController = new LoginController(loginGUI, r);
+            loginGUI.setVisible(true);
+            loginGUI.setLocationRelativeTo(null);
             gui.dispose();
         }
     }
+    
+    
 }
