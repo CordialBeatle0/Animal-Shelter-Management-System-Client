@@ -17,18 +17,11 @@ import RMI.EmployeeDTO;
 public class CaretakerDashboardGUI extends javax.swing.JFrame {
     
     CaretakerDTO caretakerDTO;
-    EmployeeDTO employeeDTO;
 
 
     /**
      * Creates new form CaretakerDashboardGUI
      */
-
-     public CaretakerDashboardGUI(EmployeeDTO employeeDTO ) {
-        initComponents();
-        this.employeeDTO = employeeDTO;
-  
-    }
 
     public CaretakerDashboardGUI(CaretakerDTO caretakerDTO) {
         initComponents();
@@ -167,10 +160,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
     
     public CaretakerDTO getCaretakerDTO() {
         return caretakerDTO;
-    }
-
-    public EmployeeDTO getEmployeeDTO() {
-        return employeeDTO;
     }
     
     

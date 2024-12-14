@@ -45,7 +45,6 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         jButtonAdminBack = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTableAdminInventoryItems = new javax.swing.JTable();
-        jButton1AddItem = new javax.swing.JButton();
         jButton2RemoveItem = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
@@ -98,10 +97,8 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
         });
         jScrollPane2.setViewportView(jTableAdminInventoryItems);
 
-        jButton1AddItem.setText("+");
-
         jButton2RemoveItem.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jButton2RemoveItem.setText("-");
+        jButton2RemoveItem.setText("Remove Item");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -122,9 +119,7 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
                         .addGap(170, 170, 170)
                         .addComponent(jLabel1))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(158, 158, 158)
-                        .addComponent(jButton1AddItem)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGap(145, 145, 145)
                         .addComponent(jButton2RemoveItem)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -135,10 +130,8 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2RemoveItem, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
-                    .addComponent(jButton1AddItem))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton2RemoveItem, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonAdminBack)
@@ -148,10 +141,6 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    public JButton getjButton1AddItem() {
-        return jButton1AddItem;
-    }
 
     public JButton getjButton2RemoveItem() {
         return jButton2RemoveItem;
@@ -210,7 +199,6 @@ public class ViewInventoryGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1AddItem;
     private javax.swing.JButton jButton2RemoveItem;
     private javax.swing.JButton jButtonAdminBack;
     private javax.swing.JButton jButtonPurchaseList;

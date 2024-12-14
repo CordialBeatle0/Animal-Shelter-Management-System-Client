@@ -11,6 +11,8 @@ import java.util.logging.Logger;
 import GUI.CourierDashboardGUI;
 import GUI.LoginGUI;
 import GUI.CourierViewRequestsGUI;
+import RMI.CourierDTO;
+import RMI.RequestRMI;
 
 public class CourierDashboardController {
     CourierDashboardGUI courierDashboard;
@@ -37,7 +39,14 @@ public class CourierDashboardController {
     class ViewRequestListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            CourierViewRequestsGUI viewRequests = new CourierViewRequestsGUI(courierDashboard.getCourier());
+            CourierDTO courier = null;
+            try {
+                RequestRMI requestRMI = (RequestRMI) registry.lookup("Request");
+                courier = requestRMI.getAssignedCourier(courierDashboard.getCourier().getID());
+            } catch (RemoteException | NotBoundException ex) {
+                Logger.getLogger(CourierDashboardController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            CourierViewRequestsGUI viewRequests = new CourierViewRequestsGUI(courier);
             CourierViewRequestController viewRequestController = new CourierViewRequestController(viewRequests,
                     registry);
             viewRequests.setVisible(true);

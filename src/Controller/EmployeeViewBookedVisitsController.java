@@ -15,6 +15,7 @@ import GUI.CaretakerDashboardGUI;
 import GUI.EmployeeViewBookedVisitsGUI;
 import RMI.BookingRMI;
 import RMI.BookingDTO;
+import RMI.CaretakerDTO;
 
 public class EmployeeViewBookedVisitsController {
     EmployeeViewBookedVisitsGUI employeeViewBookedVisitsGUI;
@@ -59,7 +60,7 @@ public class EmployeeViewBookedVisitsController {
     class BackViewBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
-                    employeeViewBookedVisitsGUI.getEmployeeDTO());
+                    ((CaretakerDTO) employeeViewBookedVisitsGUI.getEmployeeDTO()));
             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                     caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);

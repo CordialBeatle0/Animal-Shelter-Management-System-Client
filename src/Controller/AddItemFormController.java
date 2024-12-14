@@ -3,6 +3,8 @@ package Controller;
 import GUI.AddItemFormGUI;
 import GUI.ViewISellingItemGUI;
 import GUI.ViewInventoryGUI;
+import RMI.SellingItemDTO;
+import RMI.SellingItemRMI;
 import RMI.UtilityItemDTO;
 import RMI.UtilityItemRMI;
 
@@ -25,7 +27,7 @@ public class AddItemFormController {
         this.registry = registry;
 
         addItemFormGUI.getjButton1AddItem().addActionListener(new AddItemBtnAction());
-        addItemFormGUI.getjButton1AddItem().addActionListener(new AddItemBtnAction());
+        addItemFormGUI.getjButtonBack().addActionListener(new BackBtnAction());
     }
 
     class AddItemBtnAction implements ActionListener {
@@ -35,15 +37,14 @@ public class AddItemFormController {
                 String name = addItemFormGUI.getjTextFieldItemName().getText();
                 String quantity = addItemFormGUI.getjTextFieldItemQuantity().getText();
                 String price = addItemFormGUI.getjTextFieldPrice().getText();
-                String restockThreshold = addItemFormGUI.getjTextFieldRestockThreshold().getText();
-
-                UtilityItemDTO utilityItemDTO = new UtilityItemDTO(name, Float.parseFloat(price),
-                        Integer.parseInt(quantity), Integer.parseInt(restockThreshold));
-                UtilityItemRMI utilityItemRMI = (UtilityItemRMI) registry.lookup("UtilityItem");
-                utilityItemRMI.addItem(utilityItemDTO);
-
-                ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI(addItemFormGUI.getAdminDTO());
-                ViewInventoryController viewInventoryController = new ViewInventoryController(viewInventoryGUI,
+                
+                SellingItemDTO sellingItemDTO = new SellingItemDTO(name, Integer.parseInt(quantity), "InStock",
+                        Float.parseFloat(price));
+                SellingItemRMI sellingItemRMI = (SellingItemRMI) registry.lookup("SellingItem");
+                sellingItemRMI.addSellingItem(sellingItemDTO);
+                
+                ViewISellingItemGUI viewInventoryGUI = new ViewISellingItemGUI(addItemFormGUI.getAdminDTO());
+                ViewSellingItemController viewInventoryController = new ViewSellingItemController(viewInventoryGUI,
                         registry);
                 viewInventoryGUI.setVisible(true);
                 addItemFormGUI.dispose();

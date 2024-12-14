@@ -56,7 +56,10 @@ public class LoginController {
                     // TODO: Add code to open the employee's account
                     switch (employeeDTO.getType()) {
                         case "Admin":
-                            AdminDTO adminDTO = (AdminDTO) employeeDTO;
+                            AdminDTO adminDTO = new AdminDTO(employeeDTO.getName(), employeeDTO.getAge(),
+                                    employeeDTO.getGender(), employeeDTO.getEmail(), employeeDTO.getPhoneNumber(),
+                                    employeeDTO.getAddress(), employeeDTO.getUsername(), employeeDTO.getPassword(),
+                                    employeeDTO.getSalary(), employeeDTO.getType());
                             AdminDashboardGUI adminDashboardGUI = new AdminDashboardGUI(adminDTO);
                             AdminDashboardController adminDashboardController = new AdminDashboardController(
                                     adminDashboardGUI, registry);
@@ -64,7 +67,10 @@ public class LoginController {
                             loginGUI.dispose();
                             break;
                         case "Doctor":
-                            DoctorDTO doctorDTO = (DoctorDTO) employeeDTO;
+                            DoctorDTO doctorDTO = new DoctorDTO(employeeDTO.getID(), employeeDTO.getName(),
+                                    employeeDTO.getAge(), employeeDTO.getGender(), employeeDTO.getEmail(), employeeDTO.getPhoneNumber(),
+                                    employeeDTO.getAddress(), employeeDTO.getUsername(), employeeDTO.getPassword(),
+                                    employeeDTO.getSalary(), "Doctor");
                             DoctorDashboardGUI doctorDashboardGUI = new DoctorDashboardGUI(doctorDTO);
                             DoctorDashboardController doctorDashboardController = new DoctorDashboardController(
                                     doctorDashboardGUI, registry);
@@ -72,7 +78,10 @@ public class LoginController {
                             loginGUI.dispose();
                             break;
                         case "Courier":
-                            CourierDTO courierDTO = (CourierDTO) employeeDTO;
+                            CourierDTO courierDTO = new CourierDTO(employeeDTO.getID(), employeeDTO.getName(),
+                                    employeeDTO.getAge(), employeeDTO.getGender(), employeeDTO.getEmail(), employeeDTO.getPhoneNumber(),
+                                    employeeDTO.getAddress(), employeeDTO.getUsername(), employeeDTO.getPassword(),
+                                    employeeDTO.getSalary(), "Courier", null, 5);
                             CourierDashboardGUI courierDashboardGUI = new CourierDashboardGUI(courierDTO);
                             CourierDashboardController courierDashboardController = new CourierDashboardController(
                                     courierDashboardGUI, registry);
