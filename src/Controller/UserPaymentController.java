@@ -31,7 +31,8 @@ public class UserPaymentController {
             //selling stuff;
         
 
-        gui.getJButtonConfirmCashPayment().addActionListener(new confirmPayment());
+            gui.getJButtonConfirmCashPayment().addActionListener(new confirmPayment());
+            gui.getJButtonBackButton().addActionListener(new backButton());
     }
 
     class confirmPayment implements ActionListener {
@@ -53,8 +54,16 @@ public class UserPaymentController {
                     // Handle selling payments here
                 }
                 
+                UserDashboardGUI userDashboardGUI = new UserDashboardGUI(gui.getUserDTO());
+
+                gui.getUserDTO().setSubscribed(true);
+                
                 JOptionPane.showMessageDialog(null, "Payment Confirmed");
                 gui.dispose();
+                UserDashboardController userDashboardController = new UserDashboardController(userDashboardGUI, r); 
+                userDashboardGUI.setVisible(true);
+                userDashboardGUI.setLocationRelativeTo(null);
+
             } catch (RemoteException | NotBoundException e) {
                 e.printStackTrace();
                 JOptionPane.showMessageDialog(null, "Error processing payment: " + e.getMessage());
@@ -62,4 +71,15 @@ public class UserPaymentController {
         }
     }
 
+    class backButton implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            UserDashboardGUI userDashboardGUI = new UserDashboardGUI(gui.getUserDTO());
+            UserDashboardController userDashboardController = new UserDashboardController(userDashboardGUI, r); 
+            userDashboardGUI.setVisible(true);
+            userDashboardGUI.setLocationRelativeTo(null);
+            gui.dispose();
+        }
+    }
+   
 }
