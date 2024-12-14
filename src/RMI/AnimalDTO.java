@@ -1,9 +1,8 @@
 package RMI;
 
 import java.io.Serializable;
-import java.time.LocalDateTime;
 
-public class AnimalDTO  implements Serializable {
+public class AnimalDTO implements Serializable {
     private int ID;
     private String name;
     private String animalType;
@@ -17,9 +16,8 @@ public class AnimalDTO  implements Serializable {
     public AnimalDTO() {
     }
     
-    
-    public AnimalDTO(String name, String animalType, String breed, int age, String lastFeedingTime,
-            boolean adopted, boolean sponsored, boolean fostered) {
+    public AnimalDTO(String name, String animalType, String breed, int age, String lastFeedingTime, boolean adopted,
+                     boolean sponsored, boolean fostered) {
         this.name = name;
         this.animalType = animalType;
         this.breed = breed;
@@ -29,10 +27,9 @@ public class AnimalDTO  implements Serializable {
         this.sponsored = sponsored;
         this.fostered = fostered;
     }
-
-
+    
     public AnimalDTO(int ID, String name, String animalType, String breed, int age, String lastFeedingTime,
-            boolean adopted, boolean sponsored, boolean fostered) {
+                     boolean adopted, boolean sponsored, boolean fostered) {
         this.ID = ID;
         this.name = name;
         this.animalType = animalType;
@@ -43,7 +40,6 @@ public class AnimalDTO  implements Serializable {
         this.sponsored = sponsored;
         this.fostered = fostered;
     }
-    
     
     public int getID() {
         return ID;
