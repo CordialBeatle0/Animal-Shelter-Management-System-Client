@@ -51,8 +51,10 @@ public class LoginController {
                     AccountRMI accountRMI = (AccountRMI) registry.lookup("Account");
                     EmployeeDTO employeeDTO = accountRMI.empLogin(loginGUI.getjTextFieldUsername().getText(),
                             loginGUI.getjTextFieldPassword().getText());
+                    System.out.println(loginGUI.getjTextFieldUsername().getText());
+                    System.out.println(loginGUI.getjTextFieldPassword().getText());
                     // TODO: Add code to open the employee's account
-                    switch (employeeDTO.getClass().getName()) {
+                    switch (employeeDTO.getType()) {
                         case "Admin":
                             AdminDTO adminDTO = (AdminDTO) employeeDTO;
                             AdminDashboardGUI adminDashboardGUI = new AdminDashboardGUI(adminDTO);
@@ -78,7 +80,10 @@ public class LoginController {
                             loginGUI.dispose();
                             break;
                         case "Caretaker":
-                            CaretakerDTO caretakerDTO = (CaretakerDTO) employeeDTO;
+                            CaretakerDTO caretakerDTO = new CaretakerDTO(employeeDTO.getName(), employeeDTO.getAge(),
+                                    employeeDTO.getGender(), employeeDTO.getEmail(), employeeDTO.getPhoneNumber(),
+                                    employeeDTO.getAddress(), employeeDTO.getUsername(), employeeDTO.getPassword(),
+                                    employeeDTO.getSalary(), employeeDTO.getType(), null);
                             CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(caretakerDTO);
                             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                                     caretakerDashboardGUI, registry);

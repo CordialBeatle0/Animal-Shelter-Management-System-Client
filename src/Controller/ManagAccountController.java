@@ -34,9 +34,9 @@ public class ManagAccountController {
         if (manageAccountGUI.getEmployeeDTO().getClass().equals("CaretakerDTO")
                 || manageAccountGUI.getEmployeeDTO().getClass().equals("AdminDTO")) {
             manageAccountGUI.getjTextFieldUserName()
-                    .setText(manageAccountGUI.getEmployeeDTO().getAccount().getUsername());
+                    .setText(manageAccountGUI.getEmployeeDTO().getUsername());
             manageAccountGUI.getjTextFieldPassword()
-                    .setText(manageAccountGUI.getEmployeeDTO().getAccount().getPassword());
+                    .setText(manageAccountGUI.getEmployeeDTO().getPassword());
 
         }
         else if (manageAccountGUI.getUserDTO().getClass().equals("UserDTO")) {
@@ -52,8 +52,8 @@ public class ManagAccountController {
                     || manageAccountGUI.getEmployeeDTO().getClass().getName().equals("AdminDTO")) {
                 try {
                     accountRMI.updateSpecialisedAccount(manageAccountGUI.getEmployeeDTO().getID(),
-                            manageAccountGUI.getEmployeeDTO().getAccount().getUsername(),
-                            manageAccountGUI.getEmployeeDTO().getAccount().getPassword());
+                            manageAccountGUI.getEmployeeDTO().getUsername(),
+                            manageAccountGUI.getEmployeeDTO().getPassword());
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
 
