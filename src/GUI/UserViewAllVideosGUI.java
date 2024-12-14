@@ -3,44 +3,41 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
-import RMI.*;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
+import RMI.UserDTO;
+
 /**
  *
- * @author Shero
+ * @author Yara
  */
-public class UserViewShopGUI extends javax.swing.JFrame {
+public class UserViewAllVideosGUI extends javax.swing.JFrame {
+
+    /**
+     * Creates new form ViewAllVideos
+     */
 
     private UserDTO user;
 
-    /**
-     * Creates new form UserViewShopGUI
-     */
-    public UserViewShopGUI() {
+    public UserViewAllVideosGUI() {
         initComponents();
     }
 
-    public UserViewShopGUI(UserDTO user) {
+    public UserViewAllVideosGUI(UserDTO user) {
         initComponents();
         this.user = user;
     }
 
-    public JButton getjButtonBackUserShop() {
-        return jButtonBackUserShop;
+    public JButton getjButtonBackViewAllVideos() {
+        return jButtonBackViewAllVideos;
     }
 
-    public JButton getJButtonBuy() {
-        return jButtonBuy;
+    public JTable getjTableTrainingVideoViewAllVideos() {
+        return jTableTrainingVideoViewAllVideos;
     }
 
-    public JTable getjTableShopItemsUserShop() {
-        return jTableShopItemsUserShop;
-    }
-
-    public UserDTO getUser() {
+    public UserDTO getUserDTO() {
         return user;
     }
 
@@ -53,18 +50,14 @@ public class UserViewShopGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTableShopItemsUserShop = new javax.swing.JTable();
-        jButtonBuy = new javax.swing.JButton();
-        jButtonBackUserShop = new javax.swing.JButton();
+        jTableTrainingVideoViewAllVideos = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jButtonBackViewAllVideos = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jLabel1.setText("Shop");
-
-        jTableShopItemsUserShop.setModel(new javax.swing.table.DefaultTableModel(
+        jTableTrainingVideoViewAllVideos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
                 {null, null, null},
@@ -72,7 +65,7 @@ public class UserViewShopGUI extends javax.swing.JFrame {
                 {null, null, null}
             },
             new String [] {
-                "Item", "Type", "Price"
+                "URL", "Runtime", "Description"
             }
         ) {
             Class[] types = new Class [] {
@@ -90,44 +83,41 @@ public class UserViewShopGUI extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTableShopItemsUserShop.getTableHeader().setReorderingAllowed(false);
-        jScrollPane1.setViewportView(jTableShopItemsUserShop);
+        jScrollPane1.setViewportView(jTableTrainingVideoViewAllVideos);
 
-        jButtonBuy.setText("Buy");
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel1.setText("Training Videos");
 
-        jButtonBackUserShop.setText("Back");
+        jButtonBackViewAllVideos.setText("Back");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonBackViewAllVideos, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButtonBackUserShop, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 288, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButtonBuy)))
-                .addContainerGap())
+                        .addGap(0, 1, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addGap(135, 135, 135))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(29, 29, 29)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButtonBuy)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonBackUserShop)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 104, Short.MAX_VALUE)
+                .addComponent(jButtonBackViewAllVideos)
                 .addContainerGap())
         );
 
@@ -151,29 +141,31 @@ public class UserViewShopGUI extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(UserViewShopGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeViewAllVideosGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(UserViewShopGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeViewAllVideosGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(UserViewShopGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeViewAllVideosGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(UserViewShopGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(EmployeeViewAllVideosGUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new UserViewShopGUI().setVisible(true);
+                new EmployeeViewAllVideosGUI().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonBackUserShop;
-    private javax.swing.JButton jButtonBuy;
+    private javax.swing.JButton jButtonBackViewAllVideos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTableShopItemsUserShop;
+    private javax.swing.JTable jTableTrainingVideoViewAllVideos;
     // End of variables declaration//GEN-END:variables
 }
