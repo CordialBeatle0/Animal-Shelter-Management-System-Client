@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import RMI.SellingItemDTO;
 import RMI.UserDTO;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
@@ -17,6 +18,7 @@ import javax.swing.JTextField;
  */
 public class UserPurchaseItemGUI extends javax.swing.JFrame {
     private UserDTO user;
+    private SellingItemDTO sellingItemDTO;
 
     /**
      * Creates new form UserPurchaseItemGUI
@@ -26,10 +28,11 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }
 
-    public UserPurchaseItemGUI(UserDTO user) {
+    public UserPurchaseItemGUI(UserDTO user, SellingItemDTO sellingItemDTO) {
         initComponents();
-        this.user = user;
         setLocationRelativeTo(null);
+        this.user = user;
+        this.sellingItemDTO = sellingItemDTO;
     }
 
     public JButton getjButtonBackUserPurchase() {
@@ -63,7 +66,11 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
     public UserDTO getUser() {
         return user;
     }
-
+    
+    public SellingItemDTO getSellingItemDTO() {
+        return sellingItemDTO;
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -91,17 +98,17 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
 
         jTableShopItemsUserShop.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null}
+                {null, null}
             },
             new String [] {
-                "Item", "Type", "Price"
+                "Item", "Price"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.Float.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -124,11 +131,6 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
 
         buttonGroup1.add(jRadioButtonVisaUserPurchase);
         jRadioButtonVisaUserPurchase.setText("Visa");
-        jRadioButtonVisaUserPurchase.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonVisaUserPurchaseActionPerformed(evt);
-            }
-        });
 
         jButtonConfirmPaymentUserPurchase.setText("Confirm Payment");
 
@@ -146,9 +148,6 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(110, 110, 110)
-                                .addComponent(jTextFieldItemNameUserPurchaseItem, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(114, 114, 114)
                                 .addComponent(jRadioButtonCashUserPurchase, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(39, 39, 39)
@@ -159,8 +158,12 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(138, 138, 138)
                                 .addComponent(jButtonConfirmPaymentUserPurchase)))
-                        .addGap(0, 53, Short.MAX_VALUE)))
+                        .addGap(0, 57, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(117, 117, 117)
+                .addComponent(jTextFieldItemNameUserPurchaseItem, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(153, 153, 153)
@@ -182,7 +185,7 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
                     .addComponent(jRadioButtonVisaUserPurchase))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonConfirmPaymentUserPurchase)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addComponent(jButtonBackUserPurchase)
                 .addContainerGap())
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -196,10 +199,6 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jRadioButtonVisaUserPurchaseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonVisaUserPurchaseActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jRadioButtonVisaUserPurchaseActionPerformed
 
     /**
      * @param args the command line arguments

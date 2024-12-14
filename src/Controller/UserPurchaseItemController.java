@@ -2,10 +2,12 @@ package Controller;
 
 import GUI.UserPurchaseItemGUI;
 import GUI.UserViewShopGUI;
+import RMI.SellingItemDTO;
 import RMI.SellingItemRMI;
 import RMI.UserDTO;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.NotBoundException;
@@ -23,6 +25,7 @@ public class UserPurchaseItemController {
         this.userPurchaseItemGUI = userPurchaseItemGUI;
         this.registry = registry;
         userDTO = userPurchaseItemGUI.getUser();
+        loadTable();
         
         userPurchaseItemGUI.getjButtonConfirmPaymentUserPurchase().addActionListener(new purchaseButton());
         userPurchaseItemGUI.getjButtonBackUserPurchase().addActionListener(new backButton());
@@ -43,13 +46,12 @@ public class UserPurchaseItemController {
                     return;
                 }
                 
-                int quantityRequired = Integer.parseInt(userPurchaseItemGUI.
-                        getjSpinnerQuantityUserPurechase().getValue().toString());
-                
+                int itemID = userPurchaseItemGUI.getSellingItemDTO().getID();
+                int quantityRequired = Integer.parseInt(userPurchaseItemGUI.getjSpinnerQuantityUserPurechase().getValue().toString());
                 int userID = userDTO.getID();
                 
                 SellingItemRMI sellingItemRMI = (SellingItemRMI) registry.lookup("SellingItem");
-                sellingItemRMI.buyItem(quantityRequired, userID, payment);
+                sellingItemRMI.buyItem(itemID, quantityRequired, userID, payment);
                 JOptionPane.showMessageDialog(userPurchaseItemGUI, "Item purchased successfully");
                 backButton();
             } catch (RemoteException | NotBoundException ex) {
@@ -65,6 +67,16 @@ public class UserPurchaseItemController {
         public void actionPerformed(ActionEvent e) {
             backButton();
         }
+    }
+    
+    private void loadTable() {
+        SellingItemDTO sellingItemDTO = userPurchaseItemGUI.getSellingItemDTO();
+        String itemName = sellingItemDTO.getName();
+        userPurchaseItemGUI.getjTextFieldItemNameUserPurchaseItem().setText(itemName);
+        
+        DefaultTableModel tableModel = (DefaultTableModel) userPurchaseItemGUI.getjTableShopItemsUserShop().getModel();
+        tableModel.setRowCount(0);
+        tableModel.addRow(new Object[]{itemName, sellingItemDTO.getPrice()});
     }
     
     private void backButton() {
