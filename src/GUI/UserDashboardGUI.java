@@ -1,34 +1,68 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package GUI;
 
 import RMI.UserDTO;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
 
 /**
  * @author pitos
  */
 public class UserDashboardGUI extends javax.swing.JFrame {
-    
+
     /**
      * Creates new form UserDashboard
      */
-    
     private UserDTO userDTO;
-    
+
     public UserDashboardGUI() {
         initComponents();
         setLocationRelativeTo(null);
     }
-    
+
     public UserDashboardGUI(UserDTO userDTO) {
         initComponents();
         setLocationRelativeTo(null);
         this.userDTO = userDTO;
         jTextFieldName.setText(userDTO.getName());
     }
-    
+
+    public JButton getJButtonBookShelterVisit() {
+        return jButtonBookShelterVisit;
+    }
+
+    public JButton getJButtonViewAnimals() {
+        return jButtonViewAnimals;
+    }
+
+    public JButton getBookShelterVisitButton() {
+        return jButtonBookShelterVisit;
+    }
+
+    public JButton getManageAccountButton() {
+        return jButtonManageAccount;
+    }
+
+    public JButton getSubscribeToTrainingButton() {
+        return jButtonSubscribeToTraining;
+    }
+
+    public JButton getViewAnimalsButton() {
+        return jButtonViewAnimals;
+    }
+
+    public JButton getViewBookingsButton() {
+        return jButtonViewBookings;
+    }
+
+    public JButton getViewShopButton() {
+        return jButtonViewShop;
+    }
+
+    public JButton getViewTrainingVideoButton() {
+        return jButtonViewTrainingVideo;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -37,32 +71,26 @@ public class UserDashboardGUI extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        
+
         jLabel1 = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
-        jButtonDonateAnimal = new javax.swing.JButton();
-        jButtonSponsorAnimal = new javax.swing.JButton();
-        jButtonFosterAnimal = new javax.swing.JButton();
-        jButtonAdoptAnimal = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jButtonBookShelterVisit = new javax.swing.JButton();
         jButtonViewBookings = new javax.swing.JButton();
         jButtonViewAnimals = new javax.swing.JButton();
         jButtonViewShop = new javax.swing.JButton();
-        jButtonDonateSupplies = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButtonManageAccount = new javax.swing.JButton();
         jButtonSubscribeToTraining = new javax.swing.JButton();
         jButtonViewTrainingVideo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        
+
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel1.setText("Welcome");
-        
+
         jTextFieldName.setEditable(false);
         jTextFieldName.setFont(new java.awt.Font("sansserif", 0, 24)); // NOI18N
         jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
@@ -70,271 +98,180 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                 jTextFieldNameActionPerformed(evt);
             }
         });
-        
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setText("Animal");
-        
-        jButtonDonateAnimal.setText("Donate Animal");
-        jButtonDonateAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDonateAnimalActionPerformed(evt);
-            }
-        });
-        
-        jButtonSponsorAnimal.setText("Sponsor Animal");
-        jButtonSponsorAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSponsorAnimalActionPerformed(evt);
-            }
-        });
-        
-        jButtonFosterAnimal.setText("Foster Animal");
-        jButtonFosterAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFosterAnimalActionPerformed(evt);
-            }
-        });
-        
-        jButtonAdoptAnimal.setText("Adopt Animal");
-        jButtonAdoptAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdoptAnimalActionPerformed(evt);
-            }
-        });
-        
+
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setText("Shelter");
-        
+
         jButtonBookShelterVisit.setText("Book Shelter Visit");
         jButtonBookShelterVisit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonBookShelterVisitActionPerformed(evt);
             }
         });
-        
+
         jButtonViewBookings.setText("View Bookings");
         jButtonViewBookings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewBookingsActionPerformed(evt);
             }
         });
-        
+
         jButtonViewAnimals.setText("View Animals");
         jButtonViewAnimals.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewAnimalsActionPerformed(evt);
             }
         });
-        
+
         jButtonViewShop.setText("View Shop");
         jButtonViewShop.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewShopActionPerformed(evt);
             }
         });
-        
-        jButtonDonateSupplies.setText("Donate Supplies");
-        jButtonDonateSupplies.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDonateSuppliesActionPerformed(evt);
-            }
-        });
-        
+
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setText("Training");
-        
+
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Account");
-        
+
         jButtonManageAccount.setText("Manage Account");
         jButtonManageAccount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonManageAccountActionPerformed(evt);
             }
         });
-        
+
         jButtonSubscribeToTraining.setText("Subscribe to Training");
         jButtonSubscribeToTraining.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSubscribeToTrainingActionPerformed(evt);
             }
         });
-        
+
         jButtonViewTrainingVideo.setText("View Training Video");
         jButtonViewTrainingVideo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewTrainingVideoActionPerformed(evt);
             }
         });
-        
+
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setText("User Dashboard");
-        
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(219, 219, 219))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(93, 93, 93)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonViewAnimals)
+                            .addComponent(jLabel4))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5)
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonBookShelterVisit)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jButtonSubscribeToTraining)
+                                .addGap(40, 40, 40)
+                                .addComponent(jButtonViewTrainingVideo)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButtonManageAccount)
+                            .addComponent(jButtonViewBookings))))
+                .addGap(49, 49, 49))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonViewShop)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(64, 64, 64)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel4)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jLabel5)
-                                                .addGap(150, 150, 150))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel3)
-                                                        .addComponent(jLabel2))
-                                                .addGap(507, 507, 507))
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                .addComponent(jButtonDonateAnimal)
-                                                                .addGap(8, 8, 8)
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                                                                .addComponent(jButtonSponsorAnimal)
-                                                                                                .addGap(38, 38, 38))
-                                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                                .addComponent(jButtonBookShelterVisit)
-                                                                                                .addGap(59, 59, 59)))
-                                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                        .addComponent(jButtonViewBookings)
-                                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                                .addComponent(jButtonFosterAnimal)
-                                                                                                .addGap(43, 43, 43)
-                                                                                                .addComponent(jButtonAdoptAnimal))))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(30, 30, 30)
-                                                                                .addComponent(jLabel1)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                                                .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                                        .addGroup(layout.createSequentialGroup()
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                        .addComponent(jButtonSubscribeToTraining)
-                                                                        .addComponent(jButtonViewAnimals))
-                                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(jButtonViewShop)
-                                                                                .addGap(76, 76, 76)
-                                                                                .addComponent(jButtonDonateSupplies)
-                                                                                .addGap(48, 48, 48))
-                                                                        .addGroup(layout.createSequentialGroup()
-                                                                                .addGap(30, 30, 30)
-                                                                                .addComponent(jButtonViewTrainingVideo)
-                                                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                                                .addComponent(jButtonManageAccount)
-                                                                                .addGap(38, 38, 38)))))))
-                                .addGap(80, 80, 80))
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(262, 262, 262)
-                                .addComponent(jLabel6)
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(52, 52, 52)
+                            .addComponent(jLabel3)
+                            .addGap(323, 323, 323)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(219, 219, 219)
+                        .addComponent(jLabel6)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(15, 15, 15)
-                                .addComponent(jLabel6)
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(26, 26, 26)
-                                .addComponent(jLabel2)
-                                .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonDonateAnimal)
-                                        .addComponent(jButtonSponsorAnimal)
-                                        .addComponent(jButtonFosterAnimal)
-                                        .addComponent(jButtonAdoptAnimal))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGap(66, 66, 66)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                                        .addComponent(jButtonBookShelterVisit)
-                                                        .addComponent(jButtonViewBookings))
-                                                .addGap(38, 38, 38))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel3)
-                                                .addGap(48, 48, 48)))
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonViewAnimals)
-                                        .addComponent(jButtonViewShop)
-                                        .addComponent(jButtonDonateSupplies))
-                                .addGap(53, 53, 53)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel4)
-                                        .addComponent(jLabel5))
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonManageAccount)
-                                        .addComponent(jButtonSubscribeToTraining)
-                                        .addComponent(jButtonViewTrainingVideo))
-                                .addContainerGap(96, Short.MAX_VALUE))
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addComponent(jLabel6)
+                .addGap(33, 33, 33)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(43, 43, 43)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonBookShelterVisit)
+                    .addComponent(jButtonViewBookings))
+                .addGap(38, 38, 38)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonViewAnimals)
+                    .addComponent(jButtonViewShop))
+                .addGap(53, 53, 53)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addGap(29, 29, 29)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButtonManageAccount)
+                    .addComponent(jButtonSubscribeToTraining)
+                    .addComponent(jButtonViewTrainingVideo))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
-        
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void jButtonDonateAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDonateAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDonateAnimalActionPerformed
-    
-    private void jButtonSponsorAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSponsorAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonSponsorAnimalActionPerformed
-    
-    private void jButtonFosterAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFosterAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonFosterAnimalActionPerformed
-    
-    private void jButtonAdoptAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdoptAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonAdoptAnimalActionPerformed
-    
+
     private void jButtonBookShelterVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBookShelterVisitActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonBookShelterVisitActionPerformed
-    
+
     private void jButtonViewBookingsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewBookingsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewBookingsActionPerformed
-    
+
     private void jButtonViewAnimalsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewAnimalsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewAnimalsActionPerformed
-    
+
     private void jButtonViewShopActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewShopActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewShopActionPerformed
-    
-    private void jButtonDonateSuppliesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDonateSuppliesActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonDonateSuppliesActionPerformed
-    
+
     private void jButtonManageAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageAccountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonManageAccountActionPerformed
-    
+
     private void jButtonSubscribeToTrainingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubscribeToTrainingActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonSubscribeToTrainingActionPerformed
-    
+
     private void jButtonViewTrainingVideoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewTrainingVideoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewTrainingVideoActionPerformed
-    
+
     private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNameActionPerformed
-    
+
     /**
      * @param args the command line arguments
      */
@@ -362,7 +299,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -370,22 +307,16 @@ public class UserDashboardGUI extends javax.swing.JFrame {
             }
         });
     }
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdoptAnimal;
     private javax.swing.JButton jButtonBookShelterVisit;
-    private javax.swing.JButton jButtonDonateAnimal;
-    private javax.swing.JButton jButtonDonateSupplies;
-    private javax.swing.JButton jButtonFosterAnimal;
     private javax.swing.JButton jButtonManageAccount;
-    private javax.swing.JButton jButtonSponsorAnimal;
     private javax.swing.JButton jButtonSubscribeToTraining;
     private javax.swing.JButton jButtonViewAnimals;
     private javax.swing.JButton jButtonViewBookings;
     private javax.swing.JButton jButtonViewShop;
     private javax.swing.JButton jButtonViewTrainingVideo;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
