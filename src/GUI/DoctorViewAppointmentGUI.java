@@ -8,17 +8,26 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import RMI.DoctorDTO;
 /**
  *
  * @author Shero
  */
 public class DoctorViewAppointmentGUI extends javax.swing.JFrame {
 
+    DoctorDTO doctor;
+
     /**
      * Creates new form ViewDoctorAppointmentGUI
      */
     public DoctorViewAppointmentGUI() {
         initComponents();
+    }
+    
+    public DoctorViewAppointmentGUI(DoctorDTO doctor) {
+        initComponents();
+        setLocationRelativeTo(null);
+        this.doctor = doctor;
     }
 
     /**
@@ -149,6 +158,10 @@ public class DoctorViewAppointmentGUI extends javax.swing.JFrame {
 
     
     
+    public DoctorDTO getDoctor() {
+        return doctor;
+    }
+
     /**
      * @param args the command line arguments
      */
