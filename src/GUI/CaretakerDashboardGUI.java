@@ -8,6 +8,7 @@ import javax.swing.JButton;
 import javax.swing.JTextField;
 
 import RMI.CaretakerDTO;
+import RMI.EmployeeDTO;
 
 /**
  *
@@ -16,10 +17,18 @@ import RMI.CaretakerDTO;
 public class CaretakerDashboardGUI extends javax.swing.JFrame {
     
     CaretakerDTO caretakerDTO;
+    EmployeeDTO employeeDTO;
+
 
     /**
      * Creates new form CaretakerDashboardGUI
      */
+
+     public CaretakerDashboardGUI(EmployeeDTO employeeDTO ) {
+        initComponents();
+        this.employeeDTO = employeeDTO;
+  
+    }
 
     public CaretakerDashboardGUI(CaretakerDTO caretakerDTO) {
         initComponents();
@@ -159,6 +168,12 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
     public CaretakerDTO getCaretakerDTO() {
         return caretakerDTO;
     }
+
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
+    
+    
 
     /**
      * @param args the command line arguments

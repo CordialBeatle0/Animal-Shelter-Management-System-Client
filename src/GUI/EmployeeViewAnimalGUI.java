@@ -8,6 +8,8 @@ import javax.swing.JButton;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import RMI.EmployeeDTO;
+
 /**
  *
  * @author Shero
@@ -17,6 +19,16 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewAnimalGUI
      */
+
+    EmployeeDTO employeeDTO;
+    int animalID;
+
+    public EmployeeViewAnimalGUI(EmployeeDTO employeeDTO, int animalID) {
+        this.employeeDTO = employeeDTO;
+        this.animalID = animalID;
+        initComponents();
+    }
+     
     public EmployeeViewAnimalGUI() {
         initComponents();
     }
@@ -33,7 +45,6 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
         jButtonRecordFeedingViewAnimal = new javax.swing.JButton();
         jButtonBookDoctorAppointmentViewAnimal = new javax.swing.JButton();
         jButtonBackViewAnimalGUI = new javax.swing.JButton();
-        jButtonUpdateAnimalViewAnimal = new javax.swing.JButton();
         jTextFieldAnimalNameViewAnimalGUI = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableAnimalDetailsViewAnimal = new javax.swing.JTable();
@@ -41,17 +52,10 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jButtonRecordFeedingViewAnimal.setText("Record Feeding");
-        jButtonRecordFeedingViewAnimal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRecordFeedingViewAnimalActionPerformed(evt);
-            }
-        });
 
         jButtonBookDoctorAppointmentViewAnimal.setText("Book Doctor Appointment");
 
         jButtonBackViewAnimalGUI.setText("Back");
-
-        jButtonUpdateAnimalViewAnimal.setText("Update Animal");
 
         jTextFieldAnimalNameViewAnimalGUI.setEditable(false);
         jTextFieldAnimalNameViewAnimalGUI.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -98,16 +102,12 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
                 .addContainerGap(13, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jButtonBookDoctorAppointmentViewAnimal)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jButtonRecordFeedingViewAnimal)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonUpdateAnimalViewAnimal)
-                .addGap(42, 42, 42))
+                .addComponent(jButtonBookDoctorAppointmentViewAnimal)
+                .addGap(22, 22, 22))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -128,20 +128,14 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRecordFeedingViewAnimal)
-                    .addComponent(jButtonUpdateAnimalViewAnimal))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButtonBookDoctorAppointmentViewAnimal)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonBookDoctorAppointmentViewAnimal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
                 .addComponent(jButtonBackViewAnimalGUI)
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonRecordFeedingViewAnimalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRecordFeedingViewAnimalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRecordFeedingViewAnimalActionPerformed
 
     public JButton getjButtonBackViewAnimalGUI() {
         return jButtonBackViewAnimalGUI;
@@ -155,9 +149,6 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
         return jButtonRecordFeedingViewAnimal;
     }
 
-    public JButton getjButtonUpdateAnimalViewAnimal() {
-        return jButtonUpdateAnimalViewAnimal;
-    }
 
     public JTable getjTableAnimalDetailsViewAnimal() {
         return jTableAnimalDetailsViewAnimal;
@@ -166,9 +157,15 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
     public JTextField getjTextFieldAnimalNameViewAnimalGUI() {
         return jTextFieldAnimalNameViewAnimalGUI;
     }
+    
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
 
-    
-    
+    public int getAnimalID() {
+        return animalID;
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -209,7 +206,6 @@ public class EmployeeViewAnimalGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBackViewAnimalGUI;
     private javax.swing.JButton jButtonBookDoctorAppointmentViewAnimal;
     private javax.swing.JButton jButtonRecordFeedingViewAnimal;
-    private javax.swing.JButton jButtonUpdateAnimalViewAnimal;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAnimalDetailsViewAnimal;
     private javax.swing.JTextField jTextFieldAnimalNameViewAnimalGUI;

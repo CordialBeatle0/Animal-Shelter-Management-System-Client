@@ -61,16 +61,16 @@ public class CaretakerDashboardController {
 
     class ViewAllAnimalsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // TODO: use the constructor that takes the caretaketdto as a parameter
-            EmployeeViewAllAnimalsGUI employeeViewAllAnimalsGUI = new EmployeeViewAllAnimalsGUI();
+            EmployeeViewAllAnimalsGUI employeeViewAllAnimalsGUI = new EmployeeViewAllAnimalsGUI(
+                    caretakerDashboardGUI.getEmployeeDTO());
             employeeViewAllAnimalsGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
     }
+    
     class ViewAllBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // TODO: use the constructor that takes the caretaketdto as a parameter
-            EmployeeViewBookedVisitsGUI employeeViewBookedVisitsGUI = new EmployeeViewBookedVisitsGUI();
+            EmployeeViewBookedVisitsGUI employeeViewBookedVisitsGUI = new EmployeeViewBookedVisitsGUI(caretakerDashboardGUI.getEmployeeDTO());
             employeeViewBookedVisitsGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
@@ -78,8 +78,7 @@ public class CaretakerDashboardController {
 
     class ViewAllVideosButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // TODO: use the constructor that takes the caretaketdto as a parameter
-            EmployeeViewAllVideosGUI employeeViewAllVideosGUI = new EmployeeViewAllVideosGUI();
+            EmployeeViewAllVideosGUI employeeViewAllVideosGUI = new EmployeeViewAllVideosGUI(caretakerDashboardGUI.getEmployeeDTO());
             employeeViewAllVideosGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }

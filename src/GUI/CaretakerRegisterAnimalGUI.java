@@ -22,6 +22,7 @@ public class CaretakerRegisterAnimalGUI extends javax.swing.JFrame {
      * Creates new form RegisterAnimalGUI
      */
     CaretakerDTO caretakerDTO;
+    
     public CaretakerRegisterAnimalGUI(CaretakerDTO caretakerDTO) {
         this.caretakerDTO = caretakerDTO;
         initComponents();

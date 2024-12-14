@@ -19,6 +19,9 @@ public class CaretakerRegisterAnimalController {
     public CaretakerRegisterAnimalController(CaretakerRegisterAnimalGUI caretakerRegisterAnimalGUI, Registry registry) {
         this.caretakerRegisterAnimalGUI = caretakerRegisterAnimalGUI;
         this.registry = registry;
+
+        caretakerRegisterAnimalGUI.getjButtonRegisterAnimalRegisteration().addActionListener(new RegisterAnimalButtonListener());
+        caretakerRegisterAnimalGUI.getjButtonBackRegisterAnimal().addActionListener(new BackButtonListener());
     }
 
     class RegisterAnimalButtonListener implements ActionListener {
