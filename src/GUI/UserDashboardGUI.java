@@ -39,10 +39,6 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         return jButtonBookShelterVisit;
     }
 
-    public JButton getManageAccountButton() {
-        return jButtonManageAccount;
-    }
-
     public JButton getSubscribeToTrainingButton() {
         return jButtonSubscribeToTraining;
     }
@@ -74,7 +70,10 @@ public class UserDashboardGUI extends javax.swing.JFrame {
     public JButton getjButtonLogOut() {
         return jButtonLogOut;
     }
-
+    
+    public JButton getjButtonViewNextNotification() {
+        return jButtonViewNextNotification;
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -94,7 +93,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         jButtonViewShop = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jButtonManageAccount = new javax.swing.JButton();
+        jButtonViewNextNotification = new javax.swing.JButton();
         jButtonSubscribeToTraining = new javax.swing.JButton();
         jButtonViewTrainingVideo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
@@ -151,10 +150,10 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setText("Account");
 
-        jButtonManageAccount.setText("Manage Account");
-        jButtonManageAccount.addActionListener(new java.awt.event.ActionListener() {
+        jButtonViewNextNotification.setText("View Next Notification");
+        jButtonViewNextNotification.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonManageAccountActionPerformed(evt);
+                jButtonViewNextNotificationActionPerformed(evt);
             }
         });
 
@@ -216,9 +215,9 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                                 .addGap(80, 80, 80)
                                 .addComponent(jButtonViewTrainingVideo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButtonManageAccount)
+                            .addComponent(jButtonViewNextNotification)
                             .addComponent(jButtonViewBookings))))
                 .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
@@ -263,7 +262,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                     .addComponent(jLabel5))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonManageAccount)
+                    .addComponent(jButtonViewNextNotification)
                     .addComponent(jButtonSubscribeToTraining)
                     .addComponent(jButtonUnSubscribeToTraining))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -292,9 +291,9 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonViewShopActionPerformed
 
-    private void jButtonManageAccountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageAccountActionPerformed
+    private void jButtonViewNextNotificationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewNextNotificationActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonManageAccountActionPerformed
+    }//GEN-LAST:event_jButtonViewNextNotificationActionPerformed
 
     private void jButtonSubscribeToTrainingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubscribeToTrainingActionPerformed
         // TODO add your handling code here:
@@ -351,11 +350,11 @@ public class UserDashboardGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBookShelterVisit;
     private javax.swing.JButton jButtonLogOut;
-    private javax.swing.JButton jButtonManageAccount;
     private javax.swing.JButton jButtonSubscribeToTraining;
     private javax.swing.JButton jButtonUnSubscribeToTraining;
     private javax.swing.JButton jButtonViewAnimals;
     private javax.swing.JButton jButtonViewBookings;
+    private javax.swing.JButton jButtonViewNextNotification;
     private javax.swing.JButton jButtonViewShop;
     private javax.swing.JButton jButtonViewTrainingVideo;
     private javax.swing.JLabel jLabel1;
