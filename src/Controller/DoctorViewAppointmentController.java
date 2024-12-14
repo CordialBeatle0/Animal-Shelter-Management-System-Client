@@ -85,6 +85,8 @@ public class DoctorViewAppointmentController {
         @Override
         public void actionPerformed(ActionEvent e) {
             DoctorDashboardGUI doctorDashboardGUI = new DoctorDashboardGUI(doctorAppointmentGUI.getDoctor());
+            DoctorDashboardController doctorDashboardController = new DoctorDashboardController(doctorDashboardGUI,
+                    registry);
             doctorDashboardGUI.setVisible(true);
             doctorAppointmentGUI.setVisible(false);
         }
