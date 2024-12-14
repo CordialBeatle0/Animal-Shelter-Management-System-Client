@@ -14,6 +14,8 @@ import java.rmi.registry.Registry;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.swing.text.View;
+
 public class AddItemFormController {
     AddItemFormGUI addItemFormGUI;
     Registry registry;
@@ -41,6 +43,8 @@ public class AddItemFormController {
                 utilityItemRMI.addItem(utilityItemDTO);
 
                 ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI(addItemFormGUI.getAdminDTO());
+                ViewInventoryController viewInventoryController = new ViewInventoryController(viewInventoryGUI,
+                        registry);
                 viewInventoryGUI.setVisible(true);
                 addItemFormGUI.dispose();
 

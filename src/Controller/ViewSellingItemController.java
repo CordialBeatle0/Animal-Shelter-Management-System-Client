@@ -81,7 +81,7 @@ public class ViewSellingItemController {
     }
 
     private void loadTable() throws RemoteException {
-        ArrayList<SellingItemDTO> items = SellingItemRMI.viewAllSellingItems();
+        ArrayList<SellingItemDTO> items = sellingItemRMI.viewAllSellingItems();
 
         int columns;
         int rows = 0;

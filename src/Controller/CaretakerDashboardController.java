@@ -2,6 +2,8 @@ package Controller;
 
 import java.rmi.registry.Registry;
 
+import javax.swing.text.Caret;
+
 import GUI.CaretakerDashboardGUI;
 import GUI.CaretakerRegisterAnimalGUI;
 import GUI.EmployeeViewAllAnimalsGUI;
@@ -16,19 +18,19 @@ public class CaretakerDashboardController {
     CaretakerDashboardGUI caretakerDashboardGUI;
     Registry registry;
 
-
     public CaretakerDashboardController(CaretakerDashboardGUI caretakerDashboardGUI, Registry registry) {
         this.caretakerDashboardGUI = caretakerDashboardGUI;
         this.registry = registry;
 
         caretakerDashboardGUI.getjButtonLogoutCaretakerDashboard().addActionListener(new LogoutButtonListener());
-        caretakerDashboardGUI.getjButtonManageAccountCaretakerDashboard().addActionListener(new ManageAccountButtonListener());
+        caretakerDashboardGUI.getjButtonManageAccountCaretakerDashboard()
+                .addActionListener(new ManageAccountButtonListener());
         caretakerDashboardGUI.getjButtonRegisterAnimalCaretakerDashboard();
-        caretakerDashboardGUI.getjButtonViewAllAnimalsCaretakerDashboard().addActionListener(new ViewAllAnimalsButtonListener());
+        caretakerDashboardGUI.getjButtonViewAllAnimalsCaretakerDashboard()
+                .addActionListener(new ViewAllAnimalsButtonListener());
         caretakerDashboardGUI.getjButtonViewAllBookedVisitsCaretakerDashboard();
-        caretakerDashboardGUI.getjButtonViewAllVideosCaretakerDashboard().addActionListener(new ViewAllVideosButtonListener());
-                 
-        
+        caretakerDashboardGUI.getjButtonViewAllVideosCaretakerDashboard()
+                .addActionListener(new ViewAllVideosButtonListener());
 
     }
 
@@ -40,12 +42,11 @@ public class CaretakerDashboardController {
             caretakerDashboardGUI.dispose();
         }
     }
-    
+
     class ManageAccountButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            // TODO: use the constructor that takes the caretaketdto as a parameter
-            ManageAccountGUI manageAccountGUI = new ManageAccountGUI();
-            
+            ManageAccountGUI manageAccountGUI = new ManageAccountGUI(caretakerDashboardGUI.getCaretakerDTO());
+            ManagAccountController manageAccountController = new ManagAccountController(manageAccountGUI, registry);
             manageAccountGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
@@ -53,7 +54,10 @@ public class CaretakerDashboardController {
 
     class RegisterAnimalButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            CaretakerRegisterAnimalGUI caretakerRegisterAnimalGUI = new CaretakerRegisterAnimalGUI(caretakerDashboardGUI.getCaretakerDTO());
+            CaretakerRegisterAnimalGUI caretakerRegisterAnimalGUI = new CaretakerRegisterAnimalGUI(
+                    caretakerDashboardGUI.getCaretakerDTO());
+            CaretakerRegisterAnimalController caretakerRegisterAnimalController = new CaretakerRegisterAnimalController(
+                    caretakerRegisterAnimalGUI, registry);
             caretakerRegisterAnimalGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
@@ -63,14 +67,19 @@ public class CaretakerDashboardController {
         public void actionPerformed(ActionEvent e) {
             EmployeeViewAllAnimalsGUI employeeViewAllAnimalsGUI = new EmployeeViewAllAnimalsGUI(
                     caretakerDashboardGUI.getEmployeeDTO());
+            EmployeeViewAllAnimalsController employeeViewAllAnimalsController = new EmployeeViewAllAnimalsController(
+                    employeeViewAllAnimalsGUI, registry);
             employeeViewAllAnimalsGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
     }
-    
+
     class ViewAllBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            EmployeeViewBookedVisitsGUI employeeViewBookedVisitsGUI = new EmployeeViewBookedVisitsGUI(caretakerDashboardGUI.getEmployeeDTO());
+            EmployeeViewBookedVisitsGUI employeeViewBookedVisitsGUI = new EmployeeViewBookedVisitsGUI(
+                    caretakerDashboardGUI.getEmployeeDTO());
+            EmployeeViewBookedVisitsController employeeViewBookedVisitsController = new EmployeeViewBookedVisitsController(
+                    employeeViewBookedVisitsGUI, registry);
             employeeViewBookedVisitsGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
@@ -78,11 +87,13 @@ public class CaretakerDashboardController {
 
     class ViewAllVideosButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            EmployeeViewAllVideosGUI employeeViewAllVideosGUI = new EmployeeViewAllVideosGUI(caretakerDashboardGUI.getEmployeeDTO());
+            EmployeeViewAllVideosGUI employeeViewAllVideosGUI = new EmployeeViewAllVideosGUI(
+                    caretakerDashboardGUI.getEmployeeDTO());
+            EmployeeViewAllVideosController employeeViewAllVideosController = new EmployeeViewAllVideosController(
+                    employeeViewAllVideosGUI, registry);
             employeeViewAllVideosGUI.setVisible(true);
             caretakerDashboardGUI.dispose();
         }
     }
-
 
 }

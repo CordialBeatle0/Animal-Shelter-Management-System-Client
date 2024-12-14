@@ -7,6 +7,8 @@ import RMI.UtilityItemRMI;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.View;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.rmi.NotBoundException;
@@ -22,7 +24,7 @@ public class PurchaseInventoryController {
     JTable jTableAdminPurchaseList;
     DefaultTableModel tableModel;
     UtilityItemRMI utilityItemRMI;
-    
+
     public PurchaseInventoryController(PurchaseInventoryGUI purchaseInventoryGUI, Registry registry) {
         this.purchaseInventoryGUI = purchaseInventoryGUI;
         this.registry = registry;
@@ -34,11 +36,11 @@ public class PurchaseInventoryController {
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(PurchaseInventoryController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         purchaseInventoryGUI.getjButtonPurchaseItems().addActionListener(new PurchaseItemsBtnAction());
         purchaseInventoryGUI.getjButtonAdminBack().addActionListener(new AdminBackBtnAction());
     }
-    
+
     class PurchaseItemsBtnAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -59,25 +61,25 @@ public class PurchaseInventoryController {
             }
         }
     }
-    
+
     class AdminBackBtnAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             backButton();
         }
     }
-    
+
     private void loadTable() throws RemoteException {
         ArrayList<UtilityItemDTO> items = utilityItemRMI.purchaseInventory();
-        
+
         int columns;
         int rows = 0;
-        
+
         tableModel.setRowCount(0);
-        
+
         for (UtilityItemDTO item : items) {
             columns = 0;
-            tableModel.addRow(new Object[]{});
+            tableModel.addRow(new Object[] {});
             jTableAdminPurchaseList.setValueAt(item.getID(), rows, columns++);
             jTableAdminPurchaseList.setValueAt(item.getName(), rows, columns++);
             jTableAdminPurchaseList.setValueAt(item.getQuantity(), rows, columns++);
@@ -87,9 +89,10 @@ public class PurchaseInventoryController {
             rows++;
         }
     }
-    
+
     private void backButton() {
         ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI(purchaseInventoryGUI.getAdminDTO());
+        ViewInventoryController viewInventoryController = new ViewInventoryController(viewInventoryGUI, registry);
         viewInventoryGUI.setVisible(true);
         purchaseInventoryGUI.dispose();
     }
