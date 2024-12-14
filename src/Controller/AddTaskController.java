@@ -54,6 +54,8 @@ public class AddTaskController {
                 // Close form and return to task list
                 gui.dispose();
                 AdminViewAllVolunteeringTasksGUI taskListGUI = new AdminViewAllVolunteeringTasksGUI();
+                AdminViewAllVolunteeringTasksController taskListController = new AdminViewAllVolunteeringTasksController(
+                        taskListGUI, r);
                 taskListGUI.setLocationRelativeTo(null);
                 taskListGUI.setVisible(true);
                 new AdminViewAllVolunteeringTasksController(taskListGUI, r);

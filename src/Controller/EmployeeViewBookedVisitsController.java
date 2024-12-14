@@ -36,9 +36,10 @@ public class EmployeeViewBookedVisitsController {
             e.printStackTrace();
         }
 
-        employeeViewBookedVisitsGUI.getjButtonBackViewBookedVisits().addActionListener(new BackViewBookedVisitsButtonListener());
+        employeeViewBookedVisitsGUI.getjButtonBackViewBookedVisits()
+                .addActionListener(new BackViewBookedVisitsButtonListener());
     }
-    
+
     private void loadTable() throws RemoteException {
         ArrayList<BookingDTO> bookings = bookingRMI.viewAllBookings();
         int columns;
@@ -54,10 +55,13 @@ public class EmployeeViewBookedVisitsController {
         }
 
     }
-    
+
     class BackViewBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(employeeViewBookedVisitsGUI.getEmployeeDTO());
+            CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
+                    employeeViewBookedVisitsGUI.getEmployeeDTO());
+            CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
+                    caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
             employeeViewBookedVisitsGUI.dispose();
 

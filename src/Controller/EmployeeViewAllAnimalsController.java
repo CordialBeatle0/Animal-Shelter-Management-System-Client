@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.text.Caret;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -28,12 +29,11 @@ public class EmployeeViewAllAnimalsController {
         this.registry = registry;
         jTableEmployeeViewAllAnimals = employeeViewAllAnimalsGUI.getjTableAllAnimalsViewAllAnimals();
         tableModel = (DefaultTableModel) jTableEmployeeViewAllAnimals.getModel();
-        try{
+        try {
 
             animalRMI = (AnimalRMI) registry.lookup("Animal");
             loadTable();
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
         employeeViewAllAnimalsGUI.getjButtonViewAnimalViewAllAnimals()
@@ -43,7 +43,7 @@ public class EmployeeViewAllAnimalsController {
 
     }
 
-    private void loadTable() throws RemoteException{
+    private void loadTable() throws RemoteException {
 
         ArrayList<AnimalDTO> animals = animalRMI.viewAllAnimals();
 
@@ -72,6 +72,8 @@ public class EmployeeViewAllAnimalsController {
 
                 EmployeeViewAnimalGUI employeeViewAnimalGUI = new EmployeeViewAnimalGUI(
                         employeeViewAllAnimalsGUI.getEmployeeDTO(), animalID);
+                EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
+                        employeeViewAnimalGUI, registry);
                 employeeViewAnimalGUI.setVisible(true);
                 employeeViewAllAnimalsGUI.dispose();
 
@@ -81,7 +83,10 @@ public class EmployeeViewAllAnimalsController {
 
     class BackViewAllAnimalsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(employeeViewAllAnimalsGUI.getEmployeeDTO());
+            CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
+                    employeeViewAllAnimalsGUI.getEmployeeDTO());
+            CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
+                    caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
             employeeViewAllAnimalsGUI.dispose();
         }

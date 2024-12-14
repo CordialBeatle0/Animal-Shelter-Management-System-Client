@@ -26,7 +26,8 @@ public class CaretakerUploadTrainingVideoController {
         }
 
         caretakerUploadTrainingVideoGUI.getjButtonBackUploadTraining().addActionListener(new BackButtonListener());
-        caretakerUploadTrainingVideoGUI.getjButtonUploadVideoUploadTraining().addActionListener(new UploadTrainingVideoButtonListener());
+        caretakerUploadTrainingVideoGUI.getjButtonUploadVideoUploadTraining()
+                .addActionListener(new UploadTrainingVideoButtonListener());
 
     }
 
