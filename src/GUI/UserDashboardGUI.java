@@ -94,6 +94,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         jButtonViewTrainingVideo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
         jButtonUnSubscribeToTraining = new javax.swing.JButton();
+        jButtonLogOut = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -176,6 +177,8 @@ public class UserDashboardGUI extends javax.swing.JFrame {
             }
         });
 
+        jButtonLogOut.setText("LogOut");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -224,7 +227,10 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                                 .addGap(323, 323, 323))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
-                        .addComponent(jLabel6)))
+                        .addComponent(jLabel6))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(jButtonLogOut)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -257,7 +263,9 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                     .addComponent(jButtonUnSubscribeToTraining))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonViewTrainingVideo)
-                .addContainerGap(51, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonLogOut)
+                .addContainerGap(10, Short.MAX_VALUE))
         );
 
         pack();
@@ -337,6 +345,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBookShelterVisit;
+    private javax.swing.JButton jButtonLogOut;
     private javax.swing.JButton jButtonManageAccount;
     private javax.swing.JButton jButtonSubscribeToTraining;
     private javax.swing.JButton jButtonUnSubscribeToTraining;

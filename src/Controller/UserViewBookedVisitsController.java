@@ -33,6 +33,11 @@ public class UserViewBookedVisitsController {
             BookingRMI bookingRMI = (BookingRMI) r.lookup("Booking");
             ArrayList<BookingDTO> bookings = bookingRMI.viewAllBookings();
             
+            if (bookings.isEmpty()) {
+                JOptionPane.showMessageDialog(gui, "No bookings found");
+                return;
+            }
+            
             DefaultTableModel model = (DefaultTableModel) gui.getjTableUserBookedVisits().getModel();
             model.setRowCount(0);
 

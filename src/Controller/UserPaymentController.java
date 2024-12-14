@@ -25,7 +25,9 @@ public class UserPaymentController {
         gui.getJTextFieldUserName().setText(gui.getUserDTO().getName());
         if(subscribing)
             gui.getJTextFieldOutstandingFees().setText("10");
-        else
+        else{
+        
+        }
             //selling stuff;
         
 
@@ -38,9 +40,9 @@ public class UserPaymentController {
             try {
                 String paymentMethod = "";
                 if (gui.getJRadioButtonCash().isSelected()) {
-                    paymentMethod = "cash";
+                    paymentMethod = "Cash";
                 } else if (gui.getJRadioButtonVisa().isSelected()) {
-                    paymentMethod = "visa";
+                    paymentMethod = "Visa";
                 }
                 
 
