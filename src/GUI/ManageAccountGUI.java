@@ -5,6 +5,7 @@
 package GUI;
 
 import RMI.AdminDTO;
+import RMI.UserDTO;
 
 import javax.swing.JButton;
 import javax.swing.JTextField;
@@ -19,6 +20,7 @@ public class ManageAccountGUI extends javax.swing.JFrame {
      */
     
     private AdminDTO adminDTO;
+    private UserDTO userDTO;
     
     public ManageAccountGUI() {
         initComponents();
@@ -29,6 +31,13 @@ public class ManageAccountGUI extends javax.swing.JFrame {
         this.adminDTO = adminDTO;
         setLocationRelativeTo(null);
     }
+
+    public ManageAccountGUI(UserDTO userDTO) {
+        initComponents();
+        this.userDTO = userDTO;
+        setLocationRelativeTo(null);
+    }
+    
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,6 +218,10 @@ public class ManageAccountGUI extends javax.swing.JFrame {
     
     public AdminDTO getAdminDTO() {
         return adminDTO;
+    }
+
+    public UserDTO getUserDTO() {
+        return userDTO;
     }
     
     /**

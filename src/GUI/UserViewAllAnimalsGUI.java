@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
+import RMI.*;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 /**
  *
@@ -13,8 +18,20 @@ public class UserViewAllAnimalsGUI extends javax.swing.JFrame {
     /**
      * Creates new form UserViewAllAnimalsGUI
      */
+
+    private UserDTO user;
+
     public UserViewAllAnimalsGUI() {
         initComponents();
+    }
+
+    public UserViewAllAnimalsGUI(UserDTO user) {
+        initComponents();
+        this.user = user;
+    }
+
+    public UserDTO getUser() {
+        return user;
     }
 
     /**
@@ -173,4 +190,32 @@ public class UserViewAllAnimalsGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableAnimalDetailsUserViewAllAnimals;
     // End of variables declaration//GEN-END:variables
+
+    public JButton getjButtonAdoptAnimalUserViewAnimals() {
+        return jButtonAdoptAnimalUserViewAnimals;
+    }
+
+    public JButton getjButtonBackUserViewAllAnimals() {
+        return jButtonBackUserViewAllAnimals;
+    }
+
+    public JButton getjButtonFosterAnimalUserViewAnimals() {
+        return jButtonFosterAnimalUserViewAnimals;
+    }
+
+    public JButton getjButtonSponsorAnimalUserViewAnimals() {
+        return jButtonSponsorAnimalUserViewAnimals;
+    }
+
+    public JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
+    }
+
+    public JTable getjTableAnimalDetailsUserViewAllAnimals() {
+        return jTableAnimalDetailsUserViewAllAnimals;
+    }
 }

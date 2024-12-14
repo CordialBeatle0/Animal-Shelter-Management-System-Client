@@ -63,6 +63,14 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         return jButtonViewTrainingVideo;
     }
 
+    public UserDTO getUser() {
+        return userDTO;
+    }
+
+    public JButton getjButtonUnSubscribeToTraining() {
+        return jButtonUnSubscribeToTraining;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -85,6 +93,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         jButtonSubscribeToTraining = new javax.swing.JButton();
         jButtonViewTrainingVideo = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        jButtonUnSubscribeToTraining = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -160,6 +169,13 @@ public class UserDashboardGUI extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         jLabel6.setText("User Dashboard");
 
+        jButtonUnSubscribeToTraining.setText("UnSubscribe from Training");
+        jButtonUnSubscribeToTraining.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUnSubscribeToTrainingActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -186,21 +202,26 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                             .addComponent(jButtonBookShelterVisit)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButtonSubscribeToTraining)
-                                .addGap(40, 40, 40)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButtonUnSubscribeToTraining)
+                                .addGap(16, 16, 16))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(80, 80, 80)
                                 .addComponent(jButtonViewTrainingVideo)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 126, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 97, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButtonManageAccount)
                             .addComponent(jButtonViewBookings))))
                 .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButtonViewShop)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(52, 52, 52)
-                            .addComponent(jLabel3)
-                            .addGap(323, 323, 323)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButtonViewShop)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3)
+                                .addGap(323, 323, 323))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(219, 219, 219)
                         .addComponent(jLabel6)))
@@ -233,8 +254,10 @@ public class UserDashboardGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonManageAccount)
                     .addComponent(jButtonSubscribeToTraining)
-                    .addComponent(jButtonViewTrainingVideo))
-                .addContainerGap(85, Short.MAX_VALUE))
+                    .addComponent(jButtonUnSubscribeToTraining))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButtonViewTrainingVideo)
+                .addContainerGap(51, Short.MAX_VALUE))
         );
 
         pack();
@@ -271,6 +294,10 @@ public class UserDashboardGUI extends javax.swing.JFrame {
     private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldNameActionPerformed
+
+    private void jButtonUnSubscribeToTrainingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUnSubscribeToTrainingActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUnSubscribeToTrainingActionPerformed
 
     /**
      * @param args the command line arguments
@@ -312,6 +339,7 @@ public class UserDashboardGUI extends javax.swing.JFrame {
     private javax.swing.JButton jButtonBookShelterVisit;
     private javax.swing.JButton jButtonManageAccount;
     private javax.swing.JButton jButtonSubscribeToTraining;
+    private javax.swing.JButton jButtonUnSubscribeToTraining;
     private javax.swing.JButton jButtonViewAnimals;
     private javax.swing.JButton jButtonViewBookings;
     private javax.swing.JButton jButtonViewShop;

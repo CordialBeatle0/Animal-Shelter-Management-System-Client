@@ -48,11 +48,16 @@
                           <Component id="jButtonBookShelterVisit" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Component id="jButtonSubscribeToTraining" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="jButtonUnSubscribeToTraining" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                               <Component id="jButtonViewTrainingVideo" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace pref="126" max="32767" attributes="0"/>
+                      <EmptySpace pref="97" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jButtonManageAccount" min="-2" max="-2" attributes="0"/>
                           <Component id="jButtonViewBookings" min="-2" max="-2" attributes="0"/>
@@ -113,9 +118,11 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonManageAccount" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSubscribeToTraining" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonViewTrainingVideo" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonUnSubscribeToTraining" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="85" max="32767" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jButtonViewTrainingVideo" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -227,6 +234,14 @@
         </Property>
         <Property name="text" type="java.lang.String" value="User Dashboard"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonUnSubscribeToTraining">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="UnSubscribe from Training"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUnSubscribeToTrainingActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
