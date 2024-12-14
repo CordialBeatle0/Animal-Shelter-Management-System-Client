@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import GUI.ViewAllTasksGUI;
 import GUI.VolunteerDashboardGUI;
+import RMI.VolunteerDTO;
 import RMI.VolunteerTaskDTO;
 import RMI.VolunteerTaskRMI;
 import RMI.VolunteerRMI;
@@ -39,13 +40,18 @@ public class ViewAllTasksController {
             model.setRowCount(0);
 
             for (VolunteerTaskDTO task : tasks) {
+                VolunteerTaskDTO volunteerTaskDTO= volunteerTaskRMI.viewVolunteerTask(task.getID());
+                
+                if(volunteerTaskDTO.getAssignedVolunteer()== -1){
                 Object[] row = {
+                        task.getID(),
                         task.getTaskName(),
                         task.getType(),
                         task.getDescription(),
                         task.getDate()
                 };
                 model.addRow(row);
+                }    
             }
         } catch (RemoteException | NotBoundException ex) {
             Logger.getLogger(ViewAllTasksController.class.getName()).log(Level.SEVERE, null, ex);

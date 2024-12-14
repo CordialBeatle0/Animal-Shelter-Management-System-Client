@@ -43,7 +43,7 @@ public class AddTaskController {
 
                 // Create task object
                 VolunteerTaskDTO task = new VolunteerTaskDTO(taskName, taskType, taskDate, taskCompleted,
-                        taskDescription);
+                        taskDescription,-1);
 
                 // Save task using RMI
                 VolunteerTaskRMI volunteerTaskRMI = (VolunteerTaskRMI) r.lookup("VolunteerTask");
