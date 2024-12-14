@@ -31,7 +31,7 @@ public class ViewAllTasksController {
 
     private void loadAllTasks() {
         try {
-            VolunteerTaskRMI volunteerTaskRMI = (VolunteerTaskRMI) r.lookup("volunteerTask");
+            VolunteerTaskRMI volunteerTaskRMI = (VolunteerTaskRMI) r.lookup("VolunteerTask");
             ArrayList<VolunteerTaskDTO> tasks = volunteerTaskRMI.viewAllVolunteerTask();
 
             javax.swing.JTable table = gui.getjTableAllVolunteeringTasks();
@@ -62,7 +62,7 @@ public class ViewAllTasksController {
 
                 if (selectedRow != -1) {
                     int taskId = (int) table.getValueAt(selectedRow, 0);
-                    VolunteerRMI volunteerRMI = (VolunteerRMI) r.lookup("volunteer");
+                    VolunteerRMI volunteerRMI = (VolunteerRMI) r.lookup("Volunteer");
                     volunteerRMI.assignVolunteer(taskId, gui.getVolunteerDTO().getID());
 
                     javax.swing.JOptionPane.showMessageDialog(gui, "Task assigned successfully!");
