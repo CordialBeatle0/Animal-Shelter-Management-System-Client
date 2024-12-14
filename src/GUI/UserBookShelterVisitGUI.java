@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import RMI.UserDTO;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
@@ -12,12 +13,18 @@ import javax.swing.JTextField;
  * @author Shero
  */
 public class UserBookShelterVisitGUI extends javax.swing.JFrame {
+    private UserDTO user;
 
     /**
      * Creates new form UserBookShelterVisitGUI
      */
     public UserBookShelterVisitGUI() {
         initComponents();
+    }
+
+    public UserBookShelterVisitGUI(UserDTO user) {
+        initComponents();
+        this.user = user;
     }
 
     /**
@@ -150,9 +157,10 @@ public class UserBookShelterVisitGUI extends javax.swing.JFrame {
         return jTextFieldYearBookVisit;
     }
 
-    
-    
-    
+    public UserDTO getUser() {
+        return user;
+    }
+
     /**
      * @param args the command line arguments
      */

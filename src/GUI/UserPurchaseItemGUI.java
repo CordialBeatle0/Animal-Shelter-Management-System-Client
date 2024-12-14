@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import RMI.UserDTO;
 import javax.swing.JButton;
 import javax.swing.JRadioButton;
 import javax.swing.JSpinner;
@@ -15,12 +16,19 @@ import javax.swing.JTextField;
  * @author Shero
  */
 public class UserPurchaseItemGUI extends javax.swing.JFrame {
+    private UserDTO user;
 
     /**
      * Creates new form UserPurchaseItemGUI
      */
     public UserPurchaseItemGUI() {
         initComponents();
+        setLocationRelativeTo(null);
+    }
+
+    public UserPurchaseItemGUI(UserDTO user) {
+        initComponents();
+        this.user = user;
         setLocationRelativeTo(null);
     }
 
@@ -52,8 +60,10 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
         return jTextFieldItemNameUserPurchaseItem;
     }
 
-    
-    
+    public UserDTO getUser() {
+        return user;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -4,6 +4,7 @@
  */
 package GUI;
 
+import RMI.UserDTO;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
@@ -12,12 +13,18 @@ import javax.swing.JTable;
  * @author Shero
  */
 public class UserViewBookedVisitsGUI extends javax.swing.JFrame {
+    private UserDTO user;
 
     /**
      * Creates new form UserViewBookedVisitsGUI
      */
     public UserViewBookedVisitsGUI() {
         initComponents();
+    }
+
+    public UserViewBookedVisitsGUI(UserDTO user) {
+        initComponents();
+        this.user = user;
     }
 
     public JButton getjButtonBackUserBookedVisits() {
@@ -32,7 +39,9 @@ public class UserViewBookedVisitsGUI extends javax.swing.JFrame {
         return jTableUserBookedVisits;
     }
     
-    
+    public UserDTO getUser() {
+        return user;
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
