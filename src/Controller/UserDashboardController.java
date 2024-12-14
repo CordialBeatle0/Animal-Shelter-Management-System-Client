@@ -7,18 +7,28 @@ import java.awt.event.ActionListener;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
+import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
 import RMI.SubscriptionRMI;
+import RMI.UserRMI;
 
 public class UserDashboardController {
     private UserDashboardGUI gui;
     private Registry r;
+    private ArrayList<String> notifications;
+    UserRMI userRMI;
 
     public UserDashboardController(UserDashboardGUI gui, Registry r) {
         this.gui = gui;
         this.r = r;
+        try {
+            userRMI = (UserRMI) r.lookup("User");
+            loadNotifications();
+        } catch (RemoteException | NotBoundException e) {
+            throw new RuntimeException(e);
+        }
 
         gui.getJButtonViewAnimals().addActionListener(new openViewAnimals());
         gui.getBookShelterVisitButton().addActionListener(new openBookShelterVisit());
@@ -169,5 +179,25 @@ public class UserDashboardController {
         }
     }
     
+    class viewNotifications implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent ae) {
+            if (notifications.isEmpty()) {
+                JOptionPane.showMessageDialog(gui, "You have no notifications.");
+                return;
+            }
+            JOptionPane.showMessageDialog(gui, notifications.get(0));
+            
+            try {
+                userRMI.removeNotification(gui.getUser());
+                notifications.remove(0);
+            } catch (RemoteException e) {
+                throw new RuntimeException(e);
+            }
+        }
+    }
     
+    private void loadNotifications() throws RemoteException {
+        notifications = userRMI.getNotifications(gui.getUser());
+    }
 }
