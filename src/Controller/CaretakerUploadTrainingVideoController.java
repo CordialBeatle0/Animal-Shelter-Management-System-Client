@@ -8,6 +8,7 @@ import RMI.TrainingRMI;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 public class CaretakerUploadTrainingVideoController {
 
@@ -45,6 +46,7 @@ public class CaretakerUploadTrainingVideoController {
             try {
 
                 trainingRMI.uploadTrainingVideo(trainingDTO);
+               JOptionPane.showMessageDialog(null, "View uploaded successfully.");
 
             } 
           catch (RemoteException e1) {
@@ -62,6 +64,7 @@ public class CaretakerUploadTrainingVideoController {
             EmployeeViewAllVideosController employeeViewAllVideosController = new EmployeeViewAllVideosController(
                 employeeViewAllVideosGUI, registry);
             employeeViewAllVideosGUI.setVisible(true);
+            employeeViewAllVideosGUI.setLocationRelativeTo(null);
             caretakerUploadTrainingVideoGUI.dispose();
         }
 

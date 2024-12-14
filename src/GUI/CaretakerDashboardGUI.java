@@ -49,7 +49,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         jButtonRegisterAnimalCaretakerDashboard = new javax.swing.JButton();
         jButtonViewAllBookedVisitsCaretakerDashboard = new javax.swing.JButton();
         jButtonLogoutCaretakerDashboard = new javax.swing.JButton();
-        jButtonManageAccountCaretakerDashboard = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,8 +67,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         jButtonViewAllBookedVisitsCaretakerDashboard.setText("View All Booked Visits");
 
         jButtonLogoutCaretakerDashboard.setText("Log out");
-
-        jButtonManageAccountCaretakerDashboard.setText("Manage Account");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -99,10 +96,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jButtonLogoutCaretakerDashboard, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonManageAccountCaretakerDashboard)
-                .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,9 +112,7 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonViewAllBookedVisitsCaretakerDashboard)
                     .addComponent(jButtonViewAllVideosCaretakerDashboard))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonManageAccountCaretakerDashboard)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addComponent(jButtonLogoutCaretakerDashboard)
                 .addContainerGap())
         );
@@ -153,10 +144,7 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         return jTextFieldNameCaretakerDashboard;
     }
 
-    public JButton getjButtonManageAccountCaretakerDashboard() {
-        return jButtonManageAccountCaretakerDashboard;
-    }
-    
+
     
     public CaretakerDTO getCaretakerDTO() {
         return caretakerDTO;
@@ -201,7 +189,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogoutCaretakerDashboard;
-    private javax.swing.JButton jButtonManageAccountCaretakerDashboard;
     private javax.swing.JButton jButtonRegisterAnimalCaretakerDashboard;
     private javax.swing.JButton jButtonViewAllAnimalsCaretakerDashboard;
     private javax.swing.JButton jButtonViewAllBookedVisitsCaretakerDashboard;

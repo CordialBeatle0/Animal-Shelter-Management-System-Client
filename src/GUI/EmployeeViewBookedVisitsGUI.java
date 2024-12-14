@@ -7,6 +7,7 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
+import RMI.CaretakerDTO;
 import RMI.EmployeeDTO;
 
 /**
@@ -19,9 +20,15 @@ public class EmployeeViewBookedVisitsGUI extends javax.swing.JFrame {
      * Creates new form ViewBookedVisitsGUI
      */
     EmployeeDTO employeeDTO;
+    CaretakerDTO caretakerDTO;
 
     public EmployeeViewBookedVisitsGUI(EmployeeDTO employeeDTO) {
         this.employeeDTO = employeeDTO;
+        initComponents();
+    }
+
+    public EmployeeViewBookedVisitsGUI(CaretakerDTO caretakerDTO) {
+        this.caretakerDTO = caretakerDTO;
         initComponents();
     }
     
@@ -42,6 +49,12 @@ public class EmployeeViewBookedVisitsGUI extends javax.swing.JFrame {
     public EmployeeDTO getEmployeeDTO() {
         return employeeDTO;
     }
+
+    public CaretakerDTO getCaretakerDTO() {
+        return caretakerDTO;
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

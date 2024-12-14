@@ -48,6 +48,7 @@ public class EmployeeViewAllVideosController {
         for (TrainingDTO training : trainings) {
             columns = 0;
             tableModel.addRow(new Object[0]);
+            jTableEmployeeViewAllVideos.setValueAt(training.getID(), rows, columns++);
             jTableEmployeeViewAllVideos.setValueAt(training.getUrl(), rows, columns++);
             jTableEmployeeViewAllVideos.setValueAt(training.getRuntime(), rows, columns++);
             jTableEmployeeViewAllVideos.setValueAt(training.getDescription(), rows, columns++);
@@ -61,6 +62,7 @@ public class EmployeeViewAllVideosController {
             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                     caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
+            caretakerDashboardGUI.setLocationRelativeTo(null);
             employeeViewAllVideosGUI.dispose();
         }
     }
@@ -87,6 +89,7 @@ public class EmployeeViewAllVideosController {
             CaretakerUploadTrainingVideoController caretakerUploadTrainingVideoController = new CaretakerUploadTrainingVideoController(
                     caretakerUploadTrainingVideoGUI, registry);
             caretakerUploadTrainingVideoGUI.setVisible(true);
+            caretakerUploadTrainingVideoGUI.setLocationRelativeTo(null);
             employeeViewAllVideosGUI.dispose();
         }
     }

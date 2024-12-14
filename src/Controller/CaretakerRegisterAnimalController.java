@@ -70,6 +70,7 @@ public class CaretakerRegisterAnimalController {
             try {
                 AnimalRMI animalRMI = (AnimalRMI) registry.lookup("Animal");
                 animalRMI.registerAnimal(animal);
+                JOptionPane.showMessageDialog(caretakerRegisterAnimalGUI, "Registration Complete!");
 
             } catch (RemoteException e1) {
                 JOptionPane.showMessageDialog(caretakerRegisterAnimalGUI, "Remote Exception Error");
@@ -87,6 +88,7 @@ public class CaretakerRegisterAnimalController {
             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                     caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
+            caretakerDashboardGUI.setLocationRelativeTo(null);
             caretakerRegisterAnimalGUI.dispose();
         }
     }

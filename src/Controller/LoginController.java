@@ -97,6 +97,7 @@ public class LoginController {
                             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                                     caretakerDashboardGUI, registry);
                             caretakerDashboardGUI.setVisible(true);
+                            caretakerDashboardGUI.setLocationRelativeTo(null);
                             loginGUI.dispose();
                             break;
                     }
