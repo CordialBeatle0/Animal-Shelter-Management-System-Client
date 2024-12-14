@@ -31,6 +31,7 @@ public class DoctorDashboardController {
         public void actionPerformed(ActionEvent e) {
 
             LoginGUI login = new LoginGUI();
+            LoginController loginController = new LoginController(login, registry);
             login.setVisible(true);
             doctorDashboard.dispose();
 
@@ -42,6 +43,8 @@ public class DoctorDashboardController {
         public void actionPerformed(ActionEvent e) {
             DoctorViewAllAppointmentsGUI viewAppointments = new DoctorViewAllAppointmentsGUI(
                     doctorDashboard.getDoctor());
+            DoctorViewAllAppointmentsController viewAppointmentsController = new DoctorViewAllAppointmentsController(
+                    viewAppointments, registry);
             viewAppointments.setVisible(true);
             doctorDashboard.dispose();
 

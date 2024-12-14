@@ -43,12 +43,13 @@ public class DoctorRecordAppointmemtDescriptionController {
             DoctorViewAppointmentGUI doctorViewAppointmentGUI = new DoctorViewAppointmentGUI(
                     doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
                     doctorRecordAppointmemtDescriptionGUI1.getAppointment());
-            doctorViewAppointmentGUI.setVisible(true);
-            doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
             new DoctorViewAppointmentController(
                     new DoctorViewAppointmentGUI(doctorRecordAppointmemtDescriptionGUI1.getDoctor(),
                             doctorRecordAppointmemtDescriptionGUI1.getAppointment()),
                     registry);
+
+            doctorViewAppointmentGUI.setVisible(true);
+            doctorRecordAppointmemtDescriptionGUI1.setVisible(false);
         }
     }
 
