@@ -25,7 +25,7 @@ public class EmployeeViewAnimalController {
     JTable jTableEmployeeViewAllAnimals;
     DefaultTableModel tableModel;
 
-    public EmployeeViewAnimalController(EmployeeViewAllAnimalsGUI employeeViewAllAnimalGUI, Registry registry) {
+    public EmployeeViewAnimalController(EmployeeViewAnimalGUI employeeViewAnimalGUI, Registry registry) {
         this.employeeViewAnimalGUI = employeeViewAnimalGUI;
         this.registry = registry;
         jTableEmployeeViewAllAnimals = employeeViewAnimalGUI.getjTableAnimalDetailsViewAnimal();
@@ -40,9 +40,8 @@ public class EmployeeViewAnimalController {
 
         employeeViewAnimalGUI.getjButtonBackViewAnimalGUI().addActionListener(new BackViewAllAnimalsButtonListener());
         employeeViewAnimalGUI.getjButtonRecordFeedingViewAnimal().addActionListener(new RecordFeedingButtonListener());
-        employeeViewAnimalGUI.getjButtonBookDoctorAppointmentViewAnimal().addActionListener(new BookDocAppointmentButtonListener());
-
-
+        employeeViewAnimalGUI.getjButtonBookDoctorAppointmentViewAnimal()
+                .addActionListener(new BookDocAppointmentButtonListener());
 
     }
 
@@ -50,18 +49,15 @@ public class EmployeeViewAnimalController {
     private void loadData() {
         employeeViewAnimalGUI.getjTextFieldAnimalNameViewAnimalGUI().setText(animalDTO.getName());
 
-        int columns=1;
+        int columns = 1;
         int rows = 0;
 
-
-            tableModel.addRow(new Object[0]);
-            jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getID(), rows++, columns);
-            jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getName(), rows++, columns);
-            jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAnimalType(), rows++, columns);
-            jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getBreed(), rows++, columns);
-            jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAge(), rows++, columns);
-            
-        
+        tableModel.addRow(new Object[0]);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getID(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getName(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAnimalType(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getBreed(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAge(), rows++, columns);
 
     }
 
@@ -69,6 +65,8 @@ public class EmployeeViewAnimalController {
         public void actionPerformed(ActionEvent e) {
             EmployeeViewAllAnimalsGUI employeeViewAllAnimalsGUI = new EmployeeViewAllAnimalsGUI(
                     employeeViewAnimalGUI.getEmployeeDTO());
+            EmployeeViewAllAnimalsController employeeViewAllAnimalsController = new EmployeeViewAllAnimalsController(
+                    employeeViewAllAnimalsGUI, registry);
             employeeViewAllAnimalsGUI.setVisible(true);
             employeeViewAnimalGUI.dispose();
 
@@ -87,12 +85,14 @@ public class EmployeeViewAnimalController {
         }
 
     }
-    
+
     class BookDocAppointmentButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerBookDoctorAppointmentGUI caretakerBookDoctorAppointment = new CaretakerBookDoctorAppointmentGUI(
                     employeeViewAnimalGUI.getEmployeeDTO(), employeeViewAnimalGUI.getAnimalID());
-          caretakerBookDoctorAppointment.setVisible(true);
+            CaretakerBookDoctorAppointmentController caretakerBookDoctorAppointmentController = new CaretakerBookDoctorAppointmentController(
+                    caretakerBookDoctorAppointment, registry);
+            caretakerBookDoctorAppointment.setVisible(true);
             employeeViewAnimalGUI.dispose();
 
         }

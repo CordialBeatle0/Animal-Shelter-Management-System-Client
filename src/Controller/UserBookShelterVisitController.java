@@ -15,54 +15,59 @@ import javax.swing.JOptionPane;
 public class UserBookShelterVisitController {
     private UserBookShelterVisitGUI gui;
     private Registry r;
-    
+
     public UserBookShelterVisitController(UserBookShelterVisitGUI gui, Registry r) {
         this.gui = gui;
         this.r = r;
-        
+
         // Add action listeners
         this.gui.getjButtonBackBookVisit().addActionListener(new backButtonListener());
         this.gui.getjButtonConfirmBookingBookVisit().addActionListener(new confirmBookingListener());
     }
-    
+
     class backButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             UserDashboardGUI dashboardGUI = new UserDashboardGUI(gui.getUser());
+            UserDashboardController dashboardController = new UserDashboardController(dashboardGUI, r);
             dashboardGUI.setVisible(true);
             dashboardGUI.setLocationRelativeTo(null);
             gui.dispose();
         }
     }
-    
+
     class confirmBookingListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
                 BookingRMI bookingRMI = (BookingRMI) r.lookup("Booking");
-                
+
                 // Get the date components
                 String day = gui.getjTextFieldDayBookVisit().getText();
                 String month = gui.getjTextFieldMonthBookVisit().getText();
                 String year = gui.getjTextFieldYearBookVisit().getText();
                 String bookingDate = day + "/" + month + "/" + year;
-                
+
                 // Create booking
                 BookingDTO booking = new BookingDTO(bookingDate, gui.getUser().getID());
-                
+
                 // Submit booking
                 bookingRMI.createBooking(booking);
 
-                //print a message to show success
-                JOptionPane.showMessageDialog(gui,"Booking created successfully!");
+                // print a message to show success
+                JOptionPane.showMessageDialog(gui, "Booking created successfully!");
 
-                //clear the fields
+                // clear the fields
                 gui.getjTextFieldDayBookVisit().setText("");
                 gui.getjTextFieldMonthBookVisit().setText("");
                 gui.getjTextFieldYearBookVisit().setText("");
-                
-                //go to dashboard
-                
+
+                // go to dashboard
+                UserDashboardGUI dashboardGUI = new UserDashboardGUI(gui.getUser());
+                UserDashboardController dashboardController = new UserDashboardController(dashboardGUI, r);
+                dashboardGUI.setVisible(true);
+                dashboardGUI.setLocationRelativeTo(null);
+
             } catch (RemoteException ex) {
                 System.out.println("Error creating booking: " + ex.getMessage());
             } catch (NotBoundException ex) {
