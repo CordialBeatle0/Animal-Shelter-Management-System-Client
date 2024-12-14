@@ -32,13 +32,13 @@ public class UserDashboardController {
 
         gui.getJButtonViewAnimals().addActionListener(new openViewAnimals());
         gui.getBookShelterVisitButton().addActionListener(new openBookShelterVisit());
-        gui.getManageAccountButton().addActionListener(new openManageAccount());
         gui.getSubscribeToTrainingButton().addActionListener(new SubscribeToTraining());
         gui.getViewBookingsButton().addActionListener(new openViewBookings());
         gui.getViewShopButton().addActionListener(new openViewShop());
         gui.getViewTrainingVideoButton().addActionListener(new openViewTrainingVideo());
         gui.getjButtonUnSubscribeToTraining().addActionListener(new UnSubscribeToTraining());
         gui.getjButtonLogOut().addActionListener(new logoutButton());
+        gui.getjButtonViewNextNotification().addActionListener(new viewNotifications());
         
     }
 
