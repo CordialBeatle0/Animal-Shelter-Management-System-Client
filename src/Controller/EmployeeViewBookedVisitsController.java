@@ -60,10 +60,11 @@ public class EmployeeViewBookedVisitsController {
     class BackViewBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
-                    ((CaretakerDTO) employeeViewBookedVisitsGUI.getEmployeeDTO()));
+                    employeeViewBookedVisitsGUI.getCaretakerDTO());
             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                     caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
+            caretakerDashboardGUI.setLocationRelativeTo(null);
             employeeViewBookedVisitsGUI.dispose();
 
         }

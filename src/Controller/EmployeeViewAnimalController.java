@@ -2,6 +2,7 @@ package Controller;
 
 import java.rmi.registry.Registry;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -58,7 +59,10 @@ public class EmployeeViewAnimalController {
         jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAnimalType(), rows++, columns);
         jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getBreed(), rows++, columns);
         jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getAge(), rows++, columns);
-
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.getLastFeedingTime(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.isAdopted(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.isFostered(), rows++, columns);
+        jTableEmployeeViewAllAnimals.setValueAt(animalDTO.isSponsored(), rows++, columns);
     }
 
     class BackViewAllAnimalsButtonListener implements ActionListener {
@@ -68,6 +72,7 @@ public class EmployeeViewAnimalController {
             EmployeeViewAllAnimalsController employeeViewAllAnimalsController = new EmployeeViewAllAnimalsController(
                     employeeViewAllAnimalsGUI, registry);
             employeeViewAllAnimalsGUI.setVisible(true);
+            employeeViewAllAnimalsGUI.setLocationRelativeTo(null);
             employeeViewAnimalGUI.dispose();
 
         }
@@ -78,6 +83,7 @@ public class EmployeeViewAnimalController {
         public void actionPerformed(ActionEvent e) {
             try {
                 animalRMI.recordFeeding(animalDTO);
+                JOptionPane.showMessageDialog(employeeViewAnimalGUI, "Feeding recorded successfully");
             } catch (RemoteException e1) {
                 e1.printStackTrace();
             }

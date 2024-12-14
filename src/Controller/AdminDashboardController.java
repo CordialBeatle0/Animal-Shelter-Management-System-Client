@@ -16,7 +16,7 @@ public class AdminDashboardController {
         this.adminDashboardGUI = adminDashboardGUI;
         this.registry = registry;
 
-        adminDashboardGUI.getjButtonAdminManageAccount().addActionListener(new ManageAccountsBtnAction());
+        
         adminDashboardGUI.getjButtonLogout().addActionListener(new LogoutBtnAction());
         adminDashboardGUI.getjButtonViewInventory().addActionListener(new ViewInventoryBtnAction());
         adminDashboardGUI.getjButtonViewSellingItems().addActionListener(new ViewSellingItemsBtnAction());
@@ -70,15 +70,7 @@ public class AdminDashboardController {
         }
     }
 
-    class ManageAccountsBtnAction implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            ManageAccountGUI manageAccountGUI = new ManageAccountGUI(adminDashboardGUI.getAdminDTO());
-            ManagAccountController manageAccountController = new ManagAccountController(manageAccountGUI, registry);
-            manageAccountGUI.setVisible(true);
-            adminDashboardGUI.dispose();
-        }
-    }
+
 
     class LogoutBtnAction implements ActionListener {
         @Override
