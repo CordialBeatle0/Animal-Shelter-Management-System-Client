@@ -51,7 +51,7 @@ public class DoctorViewAppointmentController {
         @Override
         public void actionPerformed(ActionEvent e) {
             try {
-                appointmentRMI.cancelAppointment();
+                appointmentRMI.cancelAppointment(doctorAppointmentGUI.getAppointment().getID());
                 loadTable();
             } catch (RemoteException ex) {
                 Logger.getLogger(DoctorViewAppointmentController.class.getName()).log(Level.SEVERE, null, ex);
