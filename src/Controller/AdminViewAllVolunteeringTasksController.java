@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import GUI.AddTaskFormGUI;
+import GUI.AdminDashboardGUI;
 import GUI.AdminViewAllVolunteeringTasksGUI;
 import RMI.VolunteerTaskDTO;
 import RMI.VolunteerTaskRMI;
@@ -70,7 +71,10 @@ public class AdminViewAllVolunteeringTasksController {
     class goBack implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent ae) {
-            // TODO: return to admin dashboard
+            AdminDashboardGUI adminDashboardGUI = new AdminDashboardGUI(gui.getAdminDTO());
+            AdminDashboardController adminDashboardController = new AdminDashboardController(adminDashboardGUI, r);
+            adminDashboardGUI.setLocationRelativeTo(null);
+            adminDashboardGUI.setVisible(true);
             gui.setVisible(false);
         }
     }

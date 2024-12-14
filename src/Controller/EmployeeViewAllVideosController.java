@@ -20,7 +20,7 @@ public class EmployeeViewAllVideosController {
     TrainingRMI trainingRMI;
     JTable jTableEmployeeViewAllVideos;
     DefaultTableModel tableModel;
-    
+
     public EmployeeViewAllVideosController(EmployeeViewAllVideosGUI employeeViewAllVideosGUI, Registry registry) {
         this.employeeViewAllVideosGUI = employeeViewAllVideosGUI;
         this.registry = registry;
@@ -34,8 +34,10 @@ public class EmployeeViewAllVideosController {
         }
 
         employeeViewAllVideosGUI.getjButtonBackViewAllVideos().addActionListener(new BackAllVideosButtonListener());
-        employeeViewAllVideosGUI.getjButtonRemoveVideoViewAllVideos().addActionListener(new RemoveVideoButtonListener());
-        employeeViewAllVideosGUI.getjButtonUploadTrainingVideoViewAllVideos().addActionListener(new UploadVideoButtonListener());
+        employeeViewAllVideosGUI.getjButtonRemoveVideoViewAllVideos()
+                .addActionListener(new RemoveVideoButtonListener());
+        employeeViewAllVideosGUI.getjButtonUploadTrainingVideoViewAllVideos()
+                .addActionListener(new UploadVideoButtonListener());
     }
 
     private void loadTable() throws RemoteException {
@@ -56,6 +58,8 @@ public class EmployeeViewAllVideosController {
     class BackAllVideosButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI();
+            CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
+                    caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);
             employeeViewAllVideosGUI.dispose();
         }
@@ -75,11 +79,13 @@ public class EmployeeViewAllVideosController {
             }
         }
     }
-    
+
     class UploadVideoButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerUploadTrainingVideoGUI caretakerUploadTrainingVideoGUI = new CaretakerUploadTrainingVideoGUI(
                     employeeViewAllVideosGUI.getEmployeeDTO());
+            CaretakerUploadTrainingVideoController caretakerUploadTrainingVideoController = new CaretakerUploadTrainingVideoController(
+                    caretakerUploadTrainingVideoGUI, registry);
             caretakerUploadTrainingVideoGUI.setVisible(true);
             employeeViewAllVideosGUI.dispose();
         }

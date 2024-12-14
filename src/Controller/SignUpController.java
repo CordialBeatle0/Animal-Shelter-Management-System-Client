@@ -17,19 +17,19 @@ import java.util.logging.Logger;
 public class SignUpController {
     SignUpGUI signUpGUI;
     Registry registry;
-    
+
     public SignUpController(SignUpGUI signUpGUI, Registry registry) {
         this.signUpGUI = signUpGUI;
         this.registry = registry;
-        
+
         signUpGUI.getjButtonCreate().addActionListener(new CreateBtnAction());
         signUpGUI.getjButtonCancel().addActionListener(new CancelBtnAction());
     }
-    
+
     class CreateBtnAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            
+
             try {
                 String username = signUpGUI.getjTextFieldUsername().getText();
                 String password = signUpGUI.getjTextFieldPassword().getText();
@@ -40,8 +40,9 @@ public class SignUpController {
                 AccountDTO accountDTO = new AccountDTO(username, password);
                 UserDTO userDTO = new UserDTO(accountDTO, name, phoneNumber, address, 0);
                 userRMI.signUp(userDTO);
-                
+
                 LoginGUI loginGUI = new LoginGUI();
+                LoginController loginController = new LoginController(loginGUI, registry);
                 loginGUI.setVisible(true);
                 signUpGUI.dispose();
             } catch (RemoteException | NotBoundException ex) {
@@ -49,11 +50,12 @@ public class SignUpController {
             }
         }
     }
-    
+
     class CancelBtnAction implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             LoginGUI loginGUI = new LoginGUI();
+            LoginController loginController = new LoginController(loginGUI, registry);
             loginGUI.setVisible(true);
             signUpGUI.dispose();
         }

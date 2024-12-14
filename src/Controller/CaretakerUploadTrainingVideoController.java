@@ -1,4 +1,5 @@
 package Controller;
+
 import java.rmi.registry.Registry;
 import GUI.CaretakerUploadTrainingVideoGUI;
 import GUI.EmployeeViewAllVideosGUI;
@@ -24,7 +25,8 @@ public class CaretakerUploadTrainingVideoController {
         }
 
         caretakerUploadTrainingVideoGUI.getjButtonBackUploadTraining().addActionListener(new BackButtonListener());
-        caretakerUploadTrainingVideoGUI.getjButtonUploadVideoUploadTraining().addActionListener(new UploadTrainingVideoButtonListener());
+        caretakerUploadTrainingVideoGUI.getjButtonUploadVideoUploadTraining()
+                .addActionListener(new UploadTrainingVideoButtonListener());
 
     }
 
@@ -34,7 +36,7 @@ public class CaretakerUploadTrainingVideoController {
             String runtime = caretakerUploadTrainingVideoGUI.getjTextFieldRuntimeUploadTraining().getText();
             String description = caretakerUploadTrainingVideoGUI.getjTextFieldDescriptionUploadTraining().getText();
 
-            // todo: patrick write logic the upload properly because what is this 
+            // todo: patrick write logic the upload properly because what is this
 
         }
     }

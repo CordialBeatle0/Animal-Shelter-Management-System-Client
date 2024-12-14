@@ -53,6 +53,8 @@ public class CaretakerBookDoctorAppointmentController {
             EmployeeViewAnimalGUI employeeViewAnimalGUI = new EmployeeViewAnimalGUI(
                     caretakerBookDoctorAppointmentGUI.getEmployeeDTO(),
                     caretakerBookDoctorAppointmentGUI.getAnimalID());
+            EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
+                    employeeViewAnimalGUI, registry);
             employeeViewAnimalGUI.setVisible(true);
             caretakerBookDoctorAppointmentGUI.dispose();
         }
@@ -86,6 +88,8 @@ public class CaretakerBookDoctorAppointmentController {
                 EmployeeViewAnimalGUI employeeViewAnimalGUI = new EmployeeViewAnimalGUI(
                         caretakerBookDoctorAppointmentGUI.getEmployeeDTO(),
                         caretakerBookDoctorAppointmentGUI.getAnimalID());
+                EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
+                        employeeViewAnimalGUI, registry);
                 employeeViewAnimalGUI.setVisible(true);
                 caretakerBookDoctorAppointmentGUI.dispose();
             } catch (RemoteException ex) {
