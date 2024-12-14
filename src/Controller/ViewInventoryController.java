@@ -92,9 +92,12 @@ public class ViewInventoryController {
                 if (confirm != JOptionPane.YES_OPTION) {
                     return;
                 }
-                
+                // this gets the id from the row in table and return the object of that id
+                UtilityItemDTO utilityItemDTO = new UtilityItemDTO();
+                utilityItemDTO.setID((int) tableModel.getValueAt(selectedRow, 0));
+
                 UtilityItemRMI utilityItemRMI = (UtilityItemRMI) registry.lookup("UtilityItem");
-                utilityItemRMI.removeItem();
+                utilityItemRMI.removeItem(utilityItemDTO);
                 
                 tableModel.removeRow(selectedRow);
             } catch (RemoteException | NotBoundException ex) {
