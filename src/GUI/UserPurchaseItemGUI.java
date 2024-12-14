@@ -117,6 +117,8 @@ public class UserPurchaseItemGUI extends javax.swing.JFrame {
 
         jLabel.setText("Quantity");
 
+        jSpinnerQuantityUserPurechase.setModel(new javax.swing.SpinnerNumberModel(1, 1, null, 1));
+
         buttonGroup1.add(jRadioButtonCashUserPurchase);
         jRadioButtonCashUserPurchase.setText("Cash");
 
