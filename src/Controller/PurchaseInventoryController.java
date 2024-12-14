@@ -94,7 +94,6 @@ public class PurchaseInventoryController {
         ViewInventoryGUI viewInventoryGUI = new ViewInventoryGUI(purchaseInventoryGUI.getAdminDTO());
         ViewInventoryController viewInventoryController = new ViewInventoryController(viewInventoryGUI, registry);
         viewInventoryGUI.setVisible(true);
-        ViewInventoryController viewInventoryController = new ViewInventoryController(viewInventoryGUI, registry);
         purchaseInventoryGUI.dispose();
     }
 }
