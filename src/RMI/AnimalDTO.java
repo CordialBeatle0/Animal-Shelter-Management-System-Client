@@ -3,13 +3,13 @@ package RMI;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-public class AnimalDTO extends SpecialisedDTO implements Serializable {
+public class AnimalDTO  implements Serializable {
     private int ID;
     private String name;
     private String animalType;
     private String breed;
     private int age;
-    private LocalDateTime lastFeedingTime;
+    private String lastFeedingTime;
     private boolean adopted;
     private boolean sponsored;
     private boolean fostered;
@@ -17,8 +17,22 @@ public class AnimalDTO extends SpecialisedDTO implements Serializable {
     public AnimalDTO() {
     }
     
-    public AnimalDTO(int ID, String name, String animalType, String breed, int age, LocalDateTime lastFeedingTime,
-                     boolean adopted, boolean sponsored, boolean fostered) {
+    
+    public AnimalDTO(String name, String animalType, String breed, int age, String lastFeedingTime,
+            boolean adopted, boolean sponsored, boolean fostered) {
+        this.name = name;
+        this.animalType = animalType;
+        this.breed = breed;
+        this.age = age;
+        this.lastFeedingTime = lastFeedingTime;
+        this.adopted = adopted;
+        this.sponsored = sponsored;
+        this.fostered = fostered;
+    }
+
+
+    public AnimalDTO(int ID, String name, String animalType, String breed, int age, String lastFeedingTime,
+            boolean adopted, boolean sponsored, boolean fostered) {
         this.ID = ID;
         this.name = name;
         this.animalType = animalType;
@@ -29,6 +43,7 @@ public class AnimalDTO extends SpecialisedDTO implements Serializable {
         this.sponsored = sponsored;
         this.fostered = fostered;
     }
+    
     
     public int getID() {
         return ID;
@@ -70,11 +85,11 @@ public class AnimalDTO extends SpecialisedDTO implements Serializable {
         this.age = age;
     }
     
-    public LocalDateTime getLastFeedingTime() {
+    public String getLastFeedingTime() {
         return lastFeedingTime;
     }
     
-    public void setLastFeedingTime(LocalDateTime lastFeedingTime) {
+    public void setLastFeedingTime(String lastFeedingTime) {
         this.lastFeedingTime = lastFeedingTime;
     }
     
