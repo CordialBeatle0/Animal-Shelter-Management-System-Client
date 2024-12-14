@@ -34,11 +34,11 @@ public class UserViewShopController {
             Logger.getLogger(UserViewShopController.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        userViewShopGUI.getjButtonBackUserShop().addActionListener(new backButton());
+        userViewShopGUI.getjButtonBackUserShop().addActionListener(new backButtonclass());
         userViewShopGUI.getJButtonBuy().addActionListener(new buyButton());
     }
     
-    class backButton implements java.awt.event.ActionListener {
+    class backButtonclass implements java.awt.event.ActionListener {
         @Override
         public void actionPerformed(java.awt.event.ActionEvent e) {
             backButton();
@@ -57,7 +57,7 @@ public class UserViewShopController {
             int ID = (int) userViewShopGUI.getjTableShopItemsUserShop().getValueAt(row, 0);
             String name = (String) userViewShopGUI.getjTableShopItemsUserShop().getValueAt(row, 1);
             int quantity = (int) userViewShopGUI.getjTableShopItemsUserShop().getValueAt(row, 2);
-            float price = (int) userViewShopGUI.getjTableShopItemsUserShop().getValueAt(row, 3);
+            float price = (float) userViewShopGUI.getjTableShopItemsUserShop().getValueAt(row, 3);
             
             SellingItemDTO sellingItemDTO = new SellingItemDTO(ID, name, quantity, null, price);
             
@@ -89,8 +89,8 @@ public class UserViewShopController {
     
     private void backButton() {
         UserDashboardGUI userDashboardGUI = new UserDashboardGUI(userDTO);
-        userDashboardGUI.setVisible(true);
         UserDashboardController userDashboardController = new UserDashboardController(userDashboardGUI, registry);
+        userDashboardGUI.setVisible(true);
         userViewShopGUI.dispose();
     }
 }

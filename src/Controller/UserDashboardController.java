@@ -69,9 +69,9 @@ public class UserDashboardController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             UserPaymentGUI payGUI = new UserPaymentGUI(gui.getUser());
+            UserPaymentController payController = new UserPaymentController(payGUI, r, true);
             payGUI.setVisible(true);
             payGUI.setLocationRelativeTo(null);
-            UserPaymentController payController = new UserPaymentController(payGUI, r, true);
             gui.dispose();
         }
     }
@@ -94,10 +94,9 @@ public class UserDashboardController {
         @Override
         public void actionPerformed(ActionEvent ae) {
             UserViewBookedVisitsGUI viewBookingsGUI = new UserViewBookedVisitsGUI(gui.getUser());
+            UserViewBookedVisitsController viewBookingsController = new UserViewBookedVisitsController(viewBookingsGUI, r);
             viewBookingsGUI.setVisible(true);
             viewBookingsGUI.setLocationRelativeTo(null);
-            UserViewBookedVisitsController viewBookingsController = new UserViewBookedVisitsController(viewBookingsGUI,
-                    r);
             gui.dispose();
         }
     }
@@ -108,6 +107,7 @@ public class UserDashboardController {
             // TODO: Patrick handle its controller cuz am confused
             UserViewShopGUI viewShopGUI = new UserViewShopGUI(gui.getUser());
             viewShopGUI.setVisible(true);
+            UserViewShopController viewShopController = new UserViewShopController(viewShopGUI, r);
             viewShopGUI.setLocationRelativeTo(null);
             gui.dispose();
         }

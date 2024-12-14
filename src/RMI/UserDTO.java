@@ -3,23 +3,26 @@ package RMI;
 import java.io.Serializable;
 
 public class UserDTO implements Serializable { // TODO: I want this to implement Observer so that it can be passed
-    // when an Observer needs to be passed, but then I would have to implement the updateObserver method
     private int ID;
-    private AccountDTO account;
+    private int account;
+    private String username;
+    private String password;
     private String name;
     private String phoneNumber;
     private String address;
     private float outstandingFees;
     
-    public UserDTO(AccountDTO account, String name, String phoneNumber, String address, float outstandingFees) {
-        this.account = account;
+    public UserDTO(String username, String password, String name, String phoneNumber, String address,
+                   float outstandingFees) {
+        this.username = username;
+        this.password = password;
         this.name = name;
         this.phoneNumber = phoneNumber;
         this.address = address;
         this.outstandingFees = outstandingFees;
     }
     
-    public UserDTO(int ID, AccountDTO account, String name, String phoneNumber, String address, float outstandingFees) {
+    public UserDTO(int ID, int account, String name, String phoneNumber, String address, float outstandingFees) {
         this.ID = ID;
         this.account = account;
         this.name = name;
@@ -36,11 +39,11 @@ public class UserDTO implements Serializable { // TODO: I want this to implement
         this.ID = ID;
     }
     
-    public AccountDTO getAccount() {
+    public int getAccount() {
         return account;
     }
     
-    public void setAccount(AccountDTO account) {
+    public void setAccount(int account) {
         this.account = account;
     }
     
@@ -54,6 +57,22 @@ public class UserDTO implements Serializable { // TODO: I want this to implement
     
     public String getPhoneNumber() {
         return phoneNumber;
+    }
+    
+    public String getUsername() {
+        return username;
+    }
+    
+    public void setUsername(String username) {
+        this.username = username;
+    }
+    
+    public String getPassword() {
+        return password;
+    }
+    
+    public void setPassword(String password) {
+        this.password = password;
     }
     
     public void setPhoneNumber(String phoneNumber) {
@@ -74,5 +93,19 @@ public class UserDTO implements Serializable { // TODO: I want this to implement
     
     public void setOutstandingFees(float outstandingFees) {
         this.outstandingFees = outstandingFees;
+    }
+    
+    @Override
+    public String toString() {
+        return "UserDTO{" +
+                "ID=" + ID +
+                ", account=" + account +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", name='" + name + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", address='" + address + '\'' +
+                ", outstandingFees=" + outstandingFees +
+                '}';
     }
 }

@@ -40,16 +40,16 @@ public class ManagAccountController {
 
         }
         else if (manageAccountGUI.getUserDTO().getClass().equals("UserDTO")) {
-            manageAccountGUI.getjTextFieldUserName().setText(manageAccountGUI.getUserDTO().getAccount().getUsername());
-            manageAccountGUI.getjTextFieldPassword().setText(manageAccountGUI.getUserDTO().getAccount().getPassword());
+            manageAccountGUI.getjTextFieldUserName().setText(manageAccountGUI.getUserDTO().getUsername());
+            manageAccountGUI.getjTextFieldPassword().setText(manageAccountGUI.getUserDTO().getPassword());
         }   
     }
 
     class updateButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e)  {
-
-            if (manageAccountGUI.getEmployeeDTO().getClass().equals("CaretakerDTO")
-                    || manageAccountGUI.getEmployeeDTO().getClass().equals("AdminDTO")) {
+            System.out.println(manageAccountGUI.getEmployeeDTO().getClass().getName());
+            if (manageAccountGUI.getEmployeeDTO().getClass().getName().equals("CaretakerDTO")
+                    || manageAccountGUI.getEmployeeDTO().getClass().getName().equals("AdminDTO")) {
                 try {
                     accountRMI.updateSpecialisedAccount(manageAccountGUI.getEmployeeDTO().getID(),
                             manageAccountGUI.getEmployeeDTO().getAccount().getUsername(),
@@ -60,11 +60,11 @@ public class ManagAccountController {
                 }
 
             }
-            else if (manageAccountGUI.getUserDTO().getClass().equals("UserDTO")) {
+            else if (manageAccountGUI.getUserDTO().getClass().getName().equals("UserDTO")) {
                 try {
                     accountRMI.updateUserAccount(manageAccountGUI.getUserDTO(),
-                            manageAccountGUI.getUserDTO().getAccount().getUsername(),
-                              manageAccountGUI.getUserDTO().getAccount().getPassword());
+                            manageAccountGUI.getUserDTO().getUsername(),
+                              manageAccountGUI.getUserDTO().getPassword());
                 } catch (RemoteException e1) {
                     e1.printStackTrace();
                 }

@@ -37,8 +37,7 @@ public class SignUpController {
                 String phoneNumber = signUpGUI.getjTextFieldPhoneNumber().getText();
                 String address = signUpGUI.getjComboBoxAddress().getSelectedItem().toString();
                 UserRMI userRMI = (UserRMI) registry.lookup("User");
-                AccountDTO accountDTO = new AccountDTO(username, password);
-                UserDTO userDTO = new UserDTO(accountDTO, name, phoneNumber, address, 0);
+                UserDTO userDTO = new UserDTO(username, password, name, phoneNumber, address, 0);
                 userRMI.signUp(userDTO);
 
                 LoginGUI loginGUI = new LoginGUI();
