@@ -7,15 +7,35 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTextField;
 
+import RMI.CaretakerDTO;
+import RMI.EmployeeDTO;
+
 /**
  *
  * @author Shero
  */
 public class CaretakerDashboardGUI extends javax.swing.JFrame {
+    
+    CaretakerDTO caretakerDTO;
+    EmployeeDTO employeeDTO;
+
 
     /**
      * Creates new form CaretakerDashboardGUI
      */
+
+     public CaretakerDashboardGUI(EmployeeDTO employeeDTO ) {
+        initComponents();
+        this.employeeDTO = employeeDTO;
+  
+    }
+
+    public CaretakerDashboardGUI(CaretakerDTO caretakerDTO) {
+        initComponents();
+        this.caretakerDTO = caretakerDTO;
+        jTextFieldNameCaretakerDashboard.setText(caretakerDTO.getName());
+    }
+    
     public CaretakerDashboardGUI() {
         initComponents();
     }
@@ -36,7 +56,7 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         jButtonRegisterAnimalCaretakerDashboard = new javax.swing.JButton();
         jButtonViewAllBookedVisitsCaretakerDashboard = new javax.swing.JButton();
         jButtonLogoutCaretakerDashboard = new javax.swing.JButton();
-        jButtonUpdateAccountCaretakerDashboard = new javax.swing.JButton();
+        jButtonManageAccountCaretakerDashboard = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,29 +69,14 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         jButtonViewAllVideosCaretakerDashboard.setText("View All Videos");
 
         jButtonViewAllAnimalsCaretakerDashboard.setText("View All Animals");
-        jButtonViewAllAnimalsCaretakerDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonViewAllAnimalsCaretakerDashboardActionPerformed(evt);
-            }
-        });
 
         jButtonRegisterAnimalCaretakerDashboard.setText("Register Animal");
-        jButtonRegisterAnimalCaretakerDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterAnimalCaretakerDashboardActionPerformed(evt);
-            }
-        });
 
         jButtonViewAllBookedVisitsCaretakerDashboard.setText("View All Booked Visits");
 
         jButtonLogoutCaretakerDashboard.setText("Log out");
-        jButtonLogoutCaretakerDashboard.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonLogoutCaretakerDashboardActionPerformed(evt);
-            }
-        });
 
-        jButtonUpdateAccountCaretakerDashboard.setText("Update Account");
+        jButtonManageAccountCaretakerDashboard.setText("Manage Account");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,7 +108,7 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButtonUpdateAccountCaretakerDashboard)
+                .addComponent(jButtonManageAccountCaretakerDashboard)
                 .addGap(142, 142, 142))
         );
         layout.setVerticalGroup(
@@ -122,7 +127,7 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
                     .addComponent(jButtonViewAllBookedVisitsCaretakerDashboard)
                     .addComponent(jButtonViewAllVideosCaretakerDashboard))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonUpdateAccountCaretakerDashboard)
+                .addComponent(jButtonManageAccountCaretakerDashboard)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jButtonLogoutCaretakerDashboard)
                 .addContainerGap())
@@ -130,18 +135,6 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonLogoutCaretakerDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogoutCaretakerDashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonLogoutCaretakerDashboardActionPerformed
-
-    private void jButtonViewAllAnimalsCaretakerDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewAllAnimalsCaretakerDashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonViewAllAnimalsCaretakerDashboardActionPerformed
-
-    private void jButtonRegisterAnimalCaretakerDashboardActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterAnimalCaretakerDashboardActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonRegisterAnimalCaretakerDashboardActionPerformed
 
     public JButton getjButtonLogoutCaretakerDashboard() {
         return jButtonLogoutCaretakerDashboard;
@@ -167,12 +160,21 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         return jTextFieldNameCaretakerDashboard;
     }
 
-    public JButton getjButtonUpdateAccountCaretakerDashboard() {
-        return jButtonUpdateAccountCaretakerDashboard;
+    public JButton getjButtonManageAccountCaretakerDashboard() {
+        return jButtonManageAccountCaretakerDashboard;
+    }
+    
+    
+    public CaretakerDTO getCaretakerDTO() {
+        return caretakerDTO;
     }
 
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
     
     
+
     /**
      * @param args the command line arguments
      */
@@ -210,8 +212,8 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogoutCaretakerDashboard;
+    private javax.swing.JButton jButtonManageAccountCaretakerDashboard;
     private javax.swing.JButton jButtonRegisterAnimalCaretakerDashboard;
-    private javax.swing.JButton jButtonUpdateAccountCaretakerDashboard;
     private javax.swing.JButton jButtonViewAllAnimalsCaretakerDashboard;
     private javax.swing.JButton jButtonViewAllBookedVisitsCaretakerDashboard;
     private javax.swing.JButton jButtonViewAllVideosCaretakerDashboard;

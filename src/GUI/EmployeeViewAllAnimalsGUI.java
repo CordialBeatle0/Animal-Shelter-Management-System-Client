@@ -7,6 +7,9 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
+import RMI.CaretakerDTO;
+import RMI.EmployeeDTO;
+
 /**
  *
  * @author Shero
@@ -16,6 +19,14 @@ public class EmployeeViewAllAnimalsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewAllAnimalsGUI
      */
+    EmployeeDTO employeeDTO;
+    
+
+    public EmployeeViewAllAnimalsGUI(EmployeeDTO employeeDTO) {
+        this.employeeDTO = employeeDTO;
+        initComponents();
+    }
+
     public EmployeeViewAllAnimalsGUI() {
         initComponents();
     }
@@ -32,8 +43,11 @@ public class EmployeeViewAllAnimalsGUI extends javax.swing.JFrame {
         return jTableAllAnimalsViewAllAnimals;
     }
 
-    
-    
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
+
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -56,20 +70,20 @@ public class EmployeeViewAllAnimalsGUI extends javax.swing.JFrame {
 
         jTableAllAnimalsViewAllAnimals.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Animal Name", "Animal Type", "Animal Breed", "Animal Age"
+                "ID", "Animal Name", "Animal Type", "Animal Breed", "Animal Age"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -95,19 +109,17 @@ public class EmployeeViewAllAnimalsGUI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 375, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(12, 12, 12)
-                                .addComponent(jButtonBackViewAllAnimals, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonViewAnimalViewAllAnimals)
-                                .addGap(10, 10, 10))))
+                        .addGap(18, 18, 18)
+                        .addComponent(jButtonBackViewAllAnimals, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(168, 168, 168)
+                        .addComponent(jButtonViewAnimalViewAllAnimals))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(166, 166, 166)
-                        .addComponent(jLabel1)))
-                .addContainerGap(13, Short.MAX_VALUE))
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

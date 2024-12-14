@@ -7,6 +7,8 @@ package GUI;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
+import RMI.EmployeeDTO;
+
 /**
  *
  * @author Shero
@@ -16,6 +18,13 @@ public class EmployeeViewBookedVisitsGUI extends javax.swing.JFrame {
     /**
      * Creates new form ViewBookedVisitsGUI
      */
+    EmployeeDTO employeeDTO;
+
+    public EmployeeViewBookedVisitsGUI(EmployeeDTO employeeDTO) {
+        this.employeeDTO = employeeDTO;
+        initComponents();
+    }
+    
     public EmployeeViewBookedVisitsGUI() {
         initComponents();
     }
@@ -30,6 +39,10 @@ public class EmployeeViewBookedVisitsGUI extends javax.swing.JFrame {
 
     
     
+    public EmployeeDTO getEmployeeDTO() {
+        return employeeDTO;
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -48,20 +61,20 @@ public class EmployeeViewBookedVisitsGUI extends javax.swing.JFrame {
 
         jTableViewAllBookedVisitsViewBooked.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null},
+                {null, null, null},
+                {null, null, null},
+                {null, null, null}
             },
             new String [] {
-                "ID", "Date", "Visitor ID", "Visitor Name"
+                "ID", "Date", "Visitor ID"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class
+                java.lang.String.class, java.lang.String.class, java.lang.String.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false
+                false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
