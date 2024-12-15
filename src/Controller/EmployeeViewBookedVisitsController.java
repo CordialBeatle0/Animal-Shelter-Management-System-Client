@@ -37,8 +37,7 @@ public class EmployeeViewBookedVisitsController {
             e.printStackTrace();
         }
 
-        employeeViewBookedVisitsGUI.getjButtonBackViewBookedVisits()
-                .addActionListener(new BackViewBookedVisitsButtonListener());
+        employeeViewBookedVisitsGUI.getjButtonBackViewBookedVisits().addActionListener(new BackViewBookedVisitsButtonListener());
     }
 
     private void loadTable() throws RemoteException {
@@ -60,7 +59,7 @@ public class EmployeeViewBookedVisitsController {
     class BackViewBookedVisitsButtonListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
             CaretakerDashboardGUI caretakerDashboardGUI = new CaretakerDashboardGUI(
-                    employeeViewBookedVisitsGUI.getCaretakerDTO());
+                    employeeViewBookedVisitsGUI.getEmployeeDTO());
             CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                     caretakerDashboardGUI, registry);
             caretakerDashboardGUI.setVisible(true);

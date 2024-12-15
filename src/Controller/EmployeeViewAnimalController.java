@@ -41,8 +41,7 @@ public class EmployeeViewAnimalController {
 
         employeeViewAnimalGUI.getjButtonBackViewAnimalGUI().addActionListener(new BackViewAllAnimalsButtonListener());
         employeeViewAnimalGUI.getjButtonRecordFeedingViewAnimal().addActionListener(new RecordFeedingButtonListener());
-        employeeViewAnimalGUI.getjButtonBookDoctorAppointmentViewAnimal()
-                .addActionListener(new BookDocAppointmentButtonListener());
+        employeeViewAnimalGUI.getjButtonBookDoctorAppointmentViewAnimal().addActionListener(new BookDocAppointmentButtonListener());
 
     }
 
@@ -83,6 +82,7 @@ public class EmployeeViewAnimalController {
         public void actionPerformed(ActionEvent e) {
             try {
                 animalRMI.recordFeeding(animalDTO);
+                loadData();
                 JOptionPane.showMessageDialog(employeeViewAnimalGUI, "Feeding recorded successfully");
             } catch (RemoteException e1) {
                 e1.printStackTrace();
@@ -99,6 +99,7 @@ public class EmployeeViewAnimalController {
             CaretakerBookDoctorAppointmentController caretakerBookDoctorAppointmentController = new CaretakerBookDoctorAppointmentController(
                     caretakerBookDoctorAppointment, registry);
             caretakerBookDoctorAppointment.setVisible(true);
+            caretakerBookDoctorAppointment.setLocationRelativeTo(null);
             employeeViewAnimalGUI.dispose();
 
         }

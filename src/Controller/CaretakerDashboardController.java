@@ -22,7 +22,8 @@ public class CaretakerDashboardController {
         this.caretakerDashboardGUI = caretakerDashboardGUI;
         this.registry = registry;
 
-        caretakerDashboardGUI.getjButtonLogoutCaretakerDashboard().addActionListener(new LogoutButtonListener());        caretakerDashboardGUI.getjButtonRegisterAnimalCaretakerDashboard().addActionListener(new RegisterAnimalButtonListener());
+        caretakerDashboardGUI.getjButtonLogoutCaretakerDashboard().addActionListener(new LogoutButtonListener());
+        caretakerDashboardGUI.getjButtonRegisterAnimalCaretakerDashboard().addActionListener(new RegisterAnimalButtonListener());
         caretakerDashboardGUI.getjButtonViewAllAnimalsCaretakerDashboard().addActionListener(new ViewAllAnimalsButtonListener());
         caretakerDashboardGUI.getjButtonViewAllBookedVisitsCaretakerDashboard().addActionListener(new ViewAllBookedVisitsButtonListener());
         caretakerDashboardGUI.getjButtonViewAllVideosCaretakerDashboard().addActionListener(new ViewAllVideosButtonListener());

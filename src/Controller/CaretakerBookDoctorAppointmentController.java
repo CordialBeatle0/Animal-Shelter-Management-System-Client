@@ -56,6 +56,7 @@ public class CaretakerBookDoctorAppointmentController {
             EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
                     employeeViewAnimalGUI, registry);
             employeeViewAnimalGUI.setVisible(true);
+            employeeViewAnimalGUI.setLocationRelativeTo(null);
             caretakerBookDoctorAppointmentGUI.dispose();
         }
     }
@@ -91,6 +92,7 @@ public class CaretakerBookDoctorAppointmentController {
                 EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
                         employeeViewAnimalGUI, registry);
                 employeeViewAnimalGUI.setVisible(true);
+                employeeViewAnimalGUI.setLocationRelativeTo(null);
                 caretakerBookDoctorAppointmentGUI.dispose();
             } catch (RemoteException ex) {
                 ex.printStackTrace();
