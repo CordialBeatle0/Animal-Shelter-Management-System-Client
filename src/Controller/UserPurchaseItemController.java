@@ -51,8 +51,13 @@ public class UserPurchaseItemController {
                 int userID = userDTO.getID();
                 
                 SellingItemRMI sellingItemRMI = (SellingItemRMI) registry.lookup("SellingItem");
-                sellingItemRMI.buyItem(itemID, quantityRequired, userID, payment);
-                JOptionPane.showMessageDialog(userPurchaseItemGUI, "Item purchased successfully");
+                boolean canBuy= sellingItemRMI.buyItem(itemID, quantityRequired, userID, payment);
+                if(canBuy){
+                    JOptionPane.showMessageDialog(userPurchaseItemGUI, "Item purchased successfully");
+                }
+                else {
+                    JOptionPane.showMessageDialog(userPurchaseItemGUI, "Item purchase failed");
+                }
                 backButton();
             } catch (RemoteException | NotBoundException ex) {
                 Logger.getLogger(UserPurchaseItemController.class.getName()).log(Level.SEVERE, null, ex);

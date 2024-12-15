@@ -28,6 +28,7 @@ public class ViewInventoryController {
 
         viewInventoryGUI.getjButtonAdminBack().addActionListener(new ViewInventoryBackBtnAction());
         viewInventoryGUI.getjButtonPurchaseList().addActionListener(new ViewInventoryPurchaseBtnAction());
+        viewInventoryGUI.getjButton2RemoveItem().addActionListener(new ViewInventoryRemoveItemBtnAction());
         fillTable();
     }
 
