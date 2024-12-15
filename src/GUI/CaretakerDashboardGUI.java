@@ -10,6 +10,7 @@ import javax.swing.JTextField;
 import RMI.CaretakerDTO;
 import RMI.EmployeeDTO;
 
+
 /**
  *
  * @author Shero
@@ -17,6 +18,7 @@ import RMI.EmployeeDTO;
 public class CaretakerDashboardGUI extends javax.swing.JFrame {
     
     CaretakerDTO caretakerDTO;
+    EmployeeDTO employeeDTO;
 
 
     /**
@@ -28,6 +30,12 @@ public class CaretakerDashboardGUI extends javax.swing.JFrame {
         this.caretakerDTO = caretakerDTO;
         jTextFieldNameCaretakerDashboard.setText(caretakerDTO.getName());
     }
+
+    public CaretakerDashboardGUI(EmployeeDTO employeeDTO) {
+        this.employeeDTO = employeeDTO;
+    }
+    
+    
     
     public CaretakerDashboardGUI() {
         initComponents();

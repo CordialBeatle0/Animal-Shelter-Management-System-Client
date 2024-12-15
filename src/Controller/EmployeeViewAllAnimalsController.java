@@ -79,6 +79,7 @@ public class EmployeeViewAllAnimalsController {
                 EmployeeViewAnimalController employeeViewAnimalController = new EmployeeViewAnimalController(
                         employeeViewAnimalGUI, registry);
                 employeeViewAnimalGUI.setVisible(true);
+                employeeViewAnimalGUI.setLocationRelativeTo(null);
                 employeeViewAllAnimalsGUI.dispose();
 
             }
@@ -93,6 +94,7 @@ public class EmployeeViewAllAnimalsController {
                 CaretakerDashboardController caretakerDashboardController = new CaretakerDashboardController(
                         caretakerDashboardGUI, registry);
                 caretakerDashboardGUI.setVisible(true);
+                caretakerDashboardGUI.setLocationRelativeTo(null);
                 employeeViewAllAnimalsGUI.dispose();
             } else {
                 AdminDashboardGUI adminDashboardGUI =
@@ -100,6 +102,7 @@ public class EmployeeViewAllAnimalsController {
                 AdminDashboardController adminDashboardController = new AdminDashboardController(adminDashboardGUI,
                         registry);
                 adminDashboardGUI.setVisible(true);
+                adminDashboardGUI.setLocationRelativeTo(null);
                 employeeViewAllAnimalsGUI.dispose();
             }
         }

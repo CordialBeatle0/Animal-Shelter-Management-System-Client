@@ -46,7 +46,14 @@ public class CaretakerUploadTrainingVideoController {
             try {
 
                 trainingRMI.uploadTrainingVideo(trainingDTO);
-               JOptionPane.showMessageDialog(null, "View uploaded successfully.");
+                            EmployeeViewAllVideosGUI employeeViewAllVideosGUI = new EmployeeViewAllVideosGUI(
+                    caretakerUploadTrainingVideoGUI.getEmployeeDTO());
+            EmployeeViewAllVideosController employeeViewAllVideosController = new EmployeeViewAllVideosController(
+                employeeViewAllVideosGUI, registry);
+            employeeViewAllVideosGUI.setVisible(true);
+            employeeViewAllVideosGUI.setLocationRelativeTo(null);
+            caretakerUploadTrainingVideoGUI.dispose();
+               JOptionPane.showMessageDialog(null, "Video uploaded successfully.");
 
             } 
           catch (RemoteException e1) {
